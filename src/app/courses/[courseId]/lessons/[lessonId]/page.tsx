@@ -45,7 +45,11 @@ const lessonContent: Record<string, Record<string, any>> = {
                         },
                         {
                             title: 'Check Your Result',
-                            content: 'Look at the preview area at the bottom. You should see: a large "Hello World" heading, a text box with placeholder text, and a "Say Hello" button. The paragraph is empty and invisible for now.',
+                            content: 'Look at the preview area at the bottom. Your page should look like this:',
+                            preview: {
+                                type: 'html-only',
+                                caption: 'Basic HTML elements (unstyled)',
+                            },
                         },
                     ],
                     note: 'The "id" attributes (name-input and greeting-message) give elements unique names so JavaScript can find and modify them. The button\'s "onclick" tells it which function to run when clicked.',
@@ -71,7 +75,11 @@ const lessonContent: Record<string, Record<string, any>> = {
                         },
                         {
                             title: 'Test It!',
-                            content: 'Type your name in the text box and click "Say Hello". Your personalized greeting should appear below the button! Try different names to see it change.',
+                            content: 'Type your name in the text box and click "Say Hello". Your personalized greeting should appear below the button:',
+                            preview: {
+                                type: 'with-greeting',
+                                caption: 'After clicking the button, a greeting appears!',
+                            },
                         },
                     ],
                     note: 'document.getElementById() finds an element by its id. The .value property gets what\'s typed in an input box. The .innerHTML property lets us change what text appears inside an element.',
@@ -118,7 +126,11 @@ button:hover {
                         },
                         {
                             title: 'See the Transformation',
-                            content: 'Your page should now have a dark background, styled input and button, and your greeting message will appear in light blue. Try clicking the button again!',
+                            content: 'Your page should now look polished and professional:',
+                            preview: {
+                                type: 'styled',
+                                caption: 'The finished greeting card with CSS styling',
+                            },
                         },
                     ],
                     note: 'CSS uses selectors to target elements: "body" targets the whole page, "input" and "button" target those elements, and "#greeting-message" targets the element with that specific id. The hover style makes the button change when you move your mouse over it.',
@@ -236,6 +248,143 @@ function greetUser() {
         },
     },
 };
+
+// Preview component to show what the user should see
+function CodePreview({ type, caption }: { type: string; caption: string }) {
+    if (type === 'html-only') {
+        return (
+            <div className="mt-4 rounded-lg border-2 border-dashed border-gray-300 overflow-hidden">
+                <div className="bg-gray-100 px-3 py-1.5 border-b border-gray-300 flex items-center gap-2">
+                    <div className="flex gap-1">
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                    </div>
+                    <span className="text-xs text-gray-500 font-medium">Preview</span>
+                </div>
+                <div className="bg-white p-6">
+                    <h1 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '16px' }}>Hello World</h1>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Enter your name"
+                            disabled
+                            className="border border-gray-300 px-2 py-1 mr-2 text-gray-700"
+                            style={{ fontSize: '16px' }}
+                        />
+                        <button
+                            disabled
+                            className="bg-gray-200 border border-gray-400 px-3 py-1 text-gray-700"
+                            style={{ fontSize: '16px' }}
+                        >
+                            Say Hello
+                        </button>
+                    </div>
+                </div>
+                <div className="bg-gray-50 px-3 py-2 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 italic">{caption}</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (type === 'with-greeting') {
+        return (
+            <div className="mt-4 rounded-lg border-2 border-dashed border-gray-300 overflow-hidden">
+                <div className="bg-gray-100 px-3 py-1.5 border-b border-gray-300 flex items-center gap-2">
+                    <div className="flex gap-1">
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                    </div>
+                    <span className="text-xs text-gray-500 font-medium">Preview</span>
+                </div>
+                <div className="bg-white p-6">
+                    <h1 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '16px' }}>Hello World</h1>
+                    <div>
+                        <input
+                            type="text"
+                            value="Sarah"
+                            disabled
+                            className="border border-gray-300 px-2 py-1 mr-2 text-gray-700"
+                            style={{ fontSize: '16px' }}
+                        />
+                        <button
+                            disabled
+                            className="bg-gray-200 border border-gray-400 px-3 py-1 text-gray-700"
+                            style={{ fontSize: '16px' }}
+                        >
+                            Say Hello
+                        </button>
+                    </div>
+                    <p style={{ marginTop: '16px', fontSize: '16px' }}>Hello Sarah, nice to meet you!</p>
+                </div>
+                <div className="bg-gray-50 px-3 py-2 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 italic">{caption}</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (type === 'styled') {
+        return (
+            <div className="mt-4 rounded-lg border-2 border-dashed border-gray-300 overflow-hidden">
+                <div className="bg-gray-100 px-3 py-1.5 border-b border-gray-300 flex items-center gap-2">
+                    <div className="flex gap-1">
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                    </div>
+                    <span className="text-xs text-gray-500 font-medium">Preview</span>
+                </div>
+                <div style={{
+                    backgroundColor: '#282c34',
+                    color: 'white',
+                    fontFamily: 'Arial, sans-serif',
+                    textAlign: 'center',
+                    padding: '30px 20px',
+                }}>
+                    <h1 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '20px' }}>Hello World</h1>
+                    <div>
+                        <input
+                            type="text"
+                            value="Sarah"
+                            disabled
+                            style={{
+                                padding: '10px',
+                                fontSize: '16px',
+                                marginRight: '10px',
+                                border: 'none',
+                            }}
+                        />
+                        <button
+                            disabled
+                            style={{
+                                padding: '10px 20px',
+                                fontSize: '16px',
+                                backgroundColor: '#61dafb',
+                                border: 'none',
+                                cursor: 'pointer',
+                            }}
+                        >
+                            Say Hello
+                        </button>
+                    </div>
+                    <p style={{
+                        fontSize: '24px',
+                        marginTop: '20px',
+                        color: '#61dafb',
+                    }}>Hello Sarah, nice to meet you!</p>
+                </div>
+                <div className="bg-gray-50 px-3 py-2 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 italic">{caption}</p>
+                </div>
+            </div>
+        );
+    }
+
+    return null;
+}
 
 export default function LessonPage({
     params,
@@ -380,6 +529,9 @@ export default function LessonPage({
                                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                                                 </svg>
                                                             </a>
+                                                        )}
+                                                        {step.preview && (
+                                                            <CodePreview type={step.preview.type} caption={step.preview.caption} />
                                                         )}
                                                     </div>
                                                 </div>
