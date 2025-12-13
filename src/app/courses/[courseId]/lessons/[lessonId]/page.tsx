@@ -218,12 +218,12 @@ function greetUser() {
             ],
             nextSteps: {
                 title: 'What\'s Next?',
-                description: 'You are now ready to move into a comprehensive, structured learning path. The next recommended step is to start the freeCodeCamp Responsive Web Design Certification, which will teach you HTML and CSS fundamentals in detail.',
+                description: 'You\'re ready for a comprehensive, structured learning path! We recommend freeCodeCamp\'s Responsive Web Design Certification — a completely free, self-paced course with hundreds of interactive exercises. Upon completion, you\'ll earn a verified certification that you can add to your LinkedIn profile or CV to showcase your skills.',
                 resources: [
                     {
-                        name: 'freeCodeCamp Responsive Web Design',
+                        name: 'freeCodeCamp Responsive Web Design Certification',
                         url: 'https://www.freecodecamp.org/learn/responsive-web-design-v9',
-                        description: 'Start Learning',
+                        description: 'Free • Self-paced • Earn a certificate',
                     },
                 ],
             },
