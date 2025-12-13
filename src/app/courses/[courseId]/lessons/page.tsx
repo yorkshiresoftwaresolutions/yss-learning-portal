@@ -9,9 +9,9 @@ const coursesData: Record<string, any> = {
         lessons: [
             {
                 id: '1',
-                title: 'Creating Your First Program',
-                duration: '30 min',
-                description: 'Learn the basics of HTML and create your very first web page from scratch. By the end of this lesson, you\'ll have a working HTML file displayed in your browser.'
+                title: 'Your First Program (Interactive Greeting Card)',
+                duration: '1-2 hours',
+                description: 'Build an interactive greeting card using HTML, CSS, and JavaScript. You\'ll use CodePen to write code and see results instantly—no setup required!'
             },
         ],
     },
