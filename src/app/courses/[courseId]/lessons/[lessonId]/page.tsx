@@ -21,11 +21,13 @@ const lessonContent: Record<string, Record<string, any>> = {
                             title: 'Create a Free CodePen Account',
                             content: 'Go to CodePen and sign up for a free account. This allows you to save your projects (called "Pens") and share them.',
                             link: 'https://codepen.io/',
+                            tip: 'CodePen is popular with web developers for quickly testing ideas and sharing code snippets. Your account is free forever!',
                         },
                         {
                             title: 'Start a New Pen',
                             content: 'Once signed in, click "Create" in the top navigation and select "New Pen." You\'ll see three panels at the top: HTML (left), CSS (middle), and JS (right). The bottom shows your live preview.',
                             image: '/codepen.jpg',
+                            tip: 'You\'ll mainly work in the HTML and JS panels today. The CSS panel is for styling — we\'ll keep it simple for now.',
                         },
                     ],
                 },
@@ -38,6 +40,7 @@ const lessonContent: Record<string, Record<string, any>> = {
                             content: 'Click in the HTML panel (top-left) and type the following code:',
                             code: `<h1>Hello World</h1>`,
                             codeLanguage: 'HTML',
+                            tip: 'The <h1> tag creates a "heading level 1" — the biggest heading. The text goes between the opening <h1> and closing </h1> tags.',
                         },
                         {
                             title: 'Check Your Result',
@@ -46,9 +49,14 @@ const lessonContent: Record<string, Record<string, any>> = {
                                 type: 'step1-heading',
                                 caption: 'Your first HTML heading!',
                             },
+                            tip: 'If nothing appears, make sure you typed the code exactly as shown, including the angle brackets < and >.',
                         },
                     ],
-                    note: 'HTML uses "tags" like <h1> to tell the browser what to display. Tags usually come in pairs: an opening tag <h1> and a closing tag </h1>.',
+                    learnMore: {
+                        content: 'HTML uses "tags" like <h1> to tell the browser what to display. Tags usually come in pairs: an opening tag <h1> and a closing tag </h1>. There are 6 heading levels (<h1> to <h6>), with <h1> being the largest.',
+                        link: 'https://www.w3schools.com/html/html_headings.asp',
+                        linkText: 'W3Schools: HTML Headings',
+                    },
                 },
                 {
                     title: 'Step 2: Adding a Greeting Message',
@@ -59,6 +67,7 @@ const lessonContent: Record<string, Record<string, any>> = {
                             content: 'Add this code below your <h1> tag:',
                             code: `<p>Hello friend, nice to meet you!</p>`,
                             codeLanguage: 'HTML',
+                            tip: 'The <p> tag creates a paragraph. Your HTML panel should now have two lines: the <h1> on top and the <p> below it.',
                         },
                         {
                             title: 'Check Your Result',
@@ -67,9 +76,14 @@ const lessonContent: Record<string, Record<string, any>> = {
                                 type: 'step2-greeting',
                                 caption: 'A heading with a greeting message',
                             },
+                            tip: 'Notice the paragraph text is smaller than the heading. HTML uses different tags to show the importance and size of text.',
                         },
                     ],
-                    note: 'Your HTML panel should now have two lines: the <h1> heading and the <p> paragraph.',
+                    learnMore: {
+                        content: 'The <p> tag defines a paragraph. Browsers automatically add some space (margin) before and after each paragraph. Your HTML panel should now have two lines: the <h1> heading and the <p> paragraph.',
+                        link: 'https://www.w3schools.com/html/html_paragraphs.asp',
+                        linkText: 'W3Schools: HTML Paragraphs',
+                    },
                 },
                 {
                     title: 'Step 3: Creating a Button to Show/Hide the Message',
@@ -80,12 +94,14 @@ const lessonContent: Record<string, Record<string, any>> = {
                             content: 'First, update your paragraph to give it a unique name (called an "id") so JavaScript can find it. Change your paragraph to:',
                             code: `<p id="greeting">Hello friend, nice to meet you!</p>`,
                             codeLanguage: 'HTML',
+                            tip: 'An "id" is like giving your element a name tag. JavaScript will use this name to find and change the element. IDs must be unique — no two elements should have the same id.',
                         },
                         {
                             title: 'Add a Button',
                             content: 'Add this button code between your <h1> and <p> tags:',
                             code: `<button onclick="toggleGreeting()">Show/Hide Greeting</button>`,
                             codeLanguage: 'HTML',
+                            tip: 'The onclick="toggleGreeting()" tells the browser: "When someone clicks this button, run the function called toggleGreeting."',
                         },
                         {
                             title: 'Add the JavaScript',
@@ -100,6 +116,7 @@ const lessonContent: Record<string, Record<string, any>> = {
   }
 }`,
                             codeLanguage: 'JavaScript',
+                            tip: 'This code creates a "function" — a reusable block of code. It finds our paragraph by its id, then checks if it\'s hidden. If hidden, show it; if visible, hide it.',
                         },
                         {
                             title: 'Test It!',
@@ -108,9 +125,14 @@ const lessonContent: Record<string, Record<string, any>> = {
                                 type: 'step3-button',
                                 caption: 'Click the button to toggle the greeting',
                             },
+                            tip: 'If clicking does nothing, check that the function name in onclick matches exactly what you wrote in the JS panel (toggleGreeting).',
                         },
                     ],
-                    note: 'The "id" attribute gives an element a unique name. JavaScript uses document.getElementById() to find elements by their id, then we can change their style.display to show or hide them.',
+                    learnMore: {
+                        content: 'The "id" attribute gives an element a unique name. JavaScript uses document.getElementById() to find elements by their id. The style.display property controls whether an element is visible ("block") or hidden ("none").',
+                        link: 'https://www.w3schools.com/js/js_htmldom_html.asp',
+                        linkText: 'W3Schools: JavaScript HTML DOM',
+                    },
                 },
                 {
                     title: 'Step 4: Adding a Text Box for the User\'s Name',
@@ -121,12 +143,14 @@ const lessonContent: Record<string, Record<string, any>> = {
                             content: 'Add this input box after your <h1> tag and before the button:',
                             code: `<input type="text" id="nameInput" placeholder="Enter your name">`,
                             codeLanguage: 'HTML',
+                            tip: 'The <input> tag creates a text box. The placeholder text shows what to type but disappears when you start typing. We gave it an id so JavaScript can read what the user types.',
                         },
                         {
                             title: 'Update the Button',
                             content: 'Change your button to call a new function:',
                             code: `<button onclick="showGreeting()">Say Hello</button>`,
                             codeLanguage: 'HTML',
+                            tip: 'We\'re changing the button to call a new function (showGreeting) that will do something different — update the greeting with the user\'s name.',
                         },
                         {
                             title: 'Update the JavaScript',
@@ -138,6 +162,7 @@ const lessonContent: Record<string, Record<string, any>> = {
   greeting.innerHTML = "Hello " + name + ", nice to meet you!";
 }`,
                             codeLanguage: 'JavaScript',
+                            tip: 'The .value property reads what was typed in the input box. The .innerHTML property changes the text inside an element. The + symbol joins text pieces together.',
                         },
                         {
                             title: 'Test It!',
@@ -146,9 +171,14 @@ const lessonContent: Record<string, Record<string, any>> = {
                                 type: 'step4-personalized',
                                 caption: 'A personalized greeting with your name!',
                             },
+                            tip: 'Try clicking "Say Hello" without typing a name — you\'ll see "Hello , nice to meet you!" This is normal! In real apps, we\'d add checks for empty inputs.',
                         },
                     ],
-                    note: 'The input\'s .value property gets whatever the user typed. We use .innerHTML to change what text appears inside the paragraph.',
+                    learnMore: {
+                        content: 'The <input> element creates a text box. The .value property gets whatever the user typed. We use .innerHTML to change what text appears inside an element. The "placeholder" attribute shows hint text when the input is empty.',
+                        link: 'https://www.w3schools.com/html/html_form_input_types.asp',
+                        linkText: 'W3Schools: HTML Input Types',
+                    },
                 },
                 {
                     title: 'Step 5: Save Your Work',
@@ -157,12 +187,19 @@ const lessonContent: Record<string, Record<string, any>> = {
                         {
                             title: 'Save Your Pen',
                             content: 'Click the "Save" button in the top-right corner of CodePen. Your Pen will be saved to your account and you\'ll get a unique URL you can share.',
+                            tip: 'Once saved, you can share the URL with friends or family to show them what you built! They\'ll be able to see and try your greeting card.',
                         },
                         {
                             title: 'Give It a Title',
                             content: 'Click on "Untitled" at the top of the page and rename your Pen to something like "My Greeting Card" so you can find it later.',
+                            tip: 'Good naming helps you stay organized. As you create more Pens, descriptive titles make it easy to find your work.',
                         },
                     ],
+                    learnMore: {
+                        content: 'CodePen automatically saves your work as you type, but clicking Save ensures everything is stored. You can find all your saved Pens by clicking your profile picture and selecting "Your Work".',
+                        link: 'https://blog.codepen.io/documentation/your-work/',
+                        linkText: 'CodePen: Managing Your Work',
+                    },
                 },
             ],
             exercise: {
@@ -317,6 +354,51 @@ function CodePreview({ type, caption }: { type: string; caption: string }) {
     return null;
 }
 
+// Learn More toggle component
+function LearnMoreToggle({ content, link, linkText }: { content: string; link: string; linkText: string }) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div className="mt-6 border border-gray-200 rounded-lg overflow-hidden">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
+            >
+                <span className="flex items-center gap-2 text-blue-600 font-medium">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Learn more
+                </span>
+                <svg
+                    className={`w-5 h-5 text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            {isOpen && (
+                <div className="px-4 py-4 bg-white border-t border-gray-200">
+                    <p className="text-gray-700 mb-3">{content}</p>
+                    <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm group"
+                    >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        {linkText}
+                    </a>
+                </div>
+            )}
+        </div>
+    );
+}
+
 export default function LessonPage({
     params,
 }: {
@@ -405,18 +487,6 @@ export default function LessonPage({
                                     </p>
                                 )}
 
-                                {section.note && (
-                                    <div className="info-box info-box-blue mb-8">
-                                        <div className="flex items-start gap-3">
-                                            <svg className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                            <p className="text-gray-700">
-                                                <span className="font-semibold text-gray-900">Key Point:</span> {section.note}
-                                            </p>
-                                        </div>
-                                    </div>
-                                )}
 
                                 {section.steps && (
                                     <div className="space-y-6">
@@ -473,11 +543,27 @@ export default function LessonPage({
                                                         {step.preview && (
                                                             <CodePreview type={step.preview.type} caption={step.preview.caption} />
                                                         )}
+                                                        {step.tip && (
+                                                            <div className="mt-4 flex items-start gap-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                                                                <svg className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                                                </svg>
+                                                                <p className="text-sm text-amber-800">{step.tip}</p>
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 </div>
                                             </div>
                                         ))}
                                     </div>
+                                )}
+
+                                {section.learnMore && (
+                                    <LearnMoreToggle
+                                        content={section.learnMore.content}
+                                        link={section.learnMore.link}
+                                        linkText={section.learnMore.linkText}
+                                    />
                                 )}
 
                                 {section.list && (
