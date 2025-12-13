@@ -326,30 +326,30 @@ export default function LessonPage({
                                 {section.steps && (
                                     <div className="space-y-6">
                                         {section.steps.map((step: any, stepIndex: number) => (
-                                            <div key={stepIndex} className="card p-6 md:p-8">
-                                                <div className="flex items-start gap-4">
+                                            <div key={stepIndex} className="card p-4 md:p-6 lg:p-8 overflow-hidden">
+                                                <div className="flex items-start gap-3 md:gap-4">
                                                     <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm">
                                                         {stepIndex + 1}
                                                     </div>
-                                                    <div className="flex-grow">
-                                                        <h3 className="text-xl font-bold text-gray-900 mb-3">
+                                                    <div className="flex-grow min-w-0">
+                                                        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
                                                             {step.title}
                                                         </h3>
-                                                        <p className="text-gray-600 leading-relaxed mb-4">
+                                                        <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
                                                             {step.content}
                                                         </p>
                                                         {step.code && (
-                                                            <div className="code-block">
-                                                                <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700/50">
+                                                            <div className="code-block -mx-4 md:mx-0 rounded-none md:rounded-lg">
+                                                                <div className="flex items-center justify-between px-3 md:px-4 py-2 border-b border-gray-700/50">
                                                                     <span className="text-xs text-gray-400 font-medium">{step.codeLanguage || 'HTML'}</span>
                                                                     <div className="flex gap-1.5">
-                                                                        <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                                                                        <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                                                                        <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                                                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500/80" />
+                                                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500/80" />
+                                                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500/80" />
                                                                     </div>
                                                                 </div>
-                                                                <pre className="p-5 overflow-x-auto custom-scrollbar">
-                                                                    <code className="text-sm leading-relaxed">{step.code}</code>
+                                                                <pre className="p-3 md:p-5 overflow-x-auto custom-scrollbar">
+                                                                    <code className="text-xs md:text-sm leading-relaxed">{step.code}</code>
                                                                 </pre>
                                                             </div>
                                                         )}

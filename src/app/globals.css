@@ -74,6 +74,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
@@ -82,6 +83,9 @@ body {
   font-family: var(--font-sans);
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   letter-spacing: -0.011em;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Typography refinements */
@@ -177,6 +181,8 @@ p {
   border: 1px solid #f3f4f6;
   box-shadow: var(--shadow-soft);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .card-hover:hover {
@@ -320,12 +326,20 @@ p {
   box-shadow: var(--shadow-soft-lg);
   font-family: var(--font-mono);
   font-size: 0.875rem;
+  max-width: 100%;
 }
 
 .code-block pre {
   padding: 1.5rem;
   overflow-x: auto;
   line-height: 1.625;
+  max-width: 100%;
+}
+
+.code-block code {
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 /* Info box styles */
@@ -333,6 +347,10 @@ p {
   border-radius: 0.75rem;
   padding: 1.5rem;
   border-left-width: 4px;
+  overflow: hidden;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .info-box-blue {
