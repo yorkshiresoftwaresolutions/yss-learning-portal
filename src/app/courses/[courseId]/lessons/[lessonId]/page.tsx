@@ -48,7 +48,11 @@ const lessonContent: Record<string, Record<string, any>> = {
                             },
                         },
                     ],
-                    note: 'HTML uses "tags" like <h1> to tell the browser what to display. Tags usually come in pairs: an opening tag <h1> and a closing tag </h1>.',
+                    learnMore: {
+                        content: 'HTML uses "tags" like <h1> to tell the browser what to display. Tags usually come in pairs: an opening tag <h1> and a closing tag </h1>. There are 6 heading levels (<h1> to <h6>), with <h1> being the largest.',
+                        link: 'https://www.w3schools.com/html/html_headings.asp',
+                        linkText: 'W3Schools: HTML Headings',
+                    },
                 },
                 {
                     title: 'Step 2: Adding a Greeting Message',
@@ -69,7 +73,11 @@ const lessonContent: Record<string, Record<string, any>> = {
                             },
                         },
                     ],
-                    note: 'Your HTML panel should now have two lines: the <h1> heading and the <p> paragraph.',
+                    learnMore: {
+                        content: 'The <p> tag defines a paragraph. Browsers automatically add some space (margin) before and after each paragraph. Your HTML panel should now have two lines: the <h1> heading and the <p> paragraph.',
+                        link: 'https://www.w3schools.com/html/html_paragraphs.asp',
+                        linkText: 'W3Schools: HTML Paragraphs',
+                    },
                 },
                 {
                     title: 'Step 3: Creating a Button to Show/Hide the Message',
@@ -110,7 +118,11 @@ const lessonContent: Record<string, Record<string, any>> = {
                             },
                         },
                     ],
-                    note: 'The "id" attribute gives an element a unique name. JavaScript uses document.getElementById() to find elements by their id, then we can change their style.display to show or hide them.',
+                    learnMore: {
+                        content: 'The "id" attribute gives an element a unique name. JavaScript uses document.getElementById() to find elements by their id. The style.display property controls whether an element is visible ("block") or hidden ("none").',
+                        link: 'https://www.w3schools.com/js/js_htmldom_html.asp',
+                        linkText: 'W3Schools: JavaScript HTML DOM',
+                    },
                 },
                 {
                     title: 'Step 4: Adding a Text Box for the User\'s Name',
@@ -148,7 +160,11 @@ const lessonContent: Record<string, Record<string, any>> = {
                             },
                         },
                     ],
-                    note: 'The input\'s .value property gets whatever the user typed. We use .innerHTML to change what text appears inside the paragraph.',
+                    learnMore: {
+                        content: 'The <input> element creates a text box. The .value property gets whatever the user typed. We use .innerHTML to change what text appears inside an element. The "placeholder" attribute shows hint text when the input is empty.',
+                        link: 'https://www.w3schools.com/html/html_form_input_types.asp',
+                        linkText: 'W3Schools: HTML Input Types',
+                    },
                 },
                 {
                     title: 'Step 5: Save Your Work',
@@ -317,6 +333,51 @@ function CodePreview({ type, caption }: { type: string; caption: string }) {
     return null;
 }
 
+// Learn More toggle component
+function LearnMoreToggle({ content, link, linkText }: { content: string; link: string; linkText: string }) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div className="mt-6 border border-gray-200 rounded-lg overflow-hidden">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
+            >
+                <span className="flex items-center gap-2 text-blue-600 font-medium">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Learn more
+                </span>
+                <svg
+                    className={`w-5 h-5 text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            {isOpen && (
+                <div className="px-4 py-4 bg-white border-t border-gray-200">
+                    <p className="text-gray-700 mb-3">{content}</p>
+                    <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm group"
+                    >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        {linkText}
+                    </a>
+                </div>
+            )}
+        </div>
+    );
+}
+
 export default function LessonPage({
     params,
 }: {
@@ -405,18 +466,6 @@ export default function LessonPage({
                                     </p>
                                 )}
 
-                                {section.note && (
-                                    <div className="info-box info-box-blue mb-8">
-                                        <div className="flex items-start gap-3">
-                                            <svg className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                            <p className="text-gray-700">
-                                                <span className="font-semibold text-gray-900">Key Point:</span> {section.note}
-                                            </p>
-                                        </div>
-                                    </div>
-                                )}
 
                                 {section.steps && (
                                     <div className="space-y-6">
@@ -478,6 +527,14 @@ export default function LessonPage({
                                             </div>
                                         ))}
                                     </div>
+                                )}
+
+                                {section.learnMore && (
+                                    <LearnMoreToggle
+                                        content={section.learnMore.content}
+                                        link={section.learnMore.link}
+                                        linkText={section.learnMore.linkText}
+                                    />
                                 )}
 
                                 {section.list && (
