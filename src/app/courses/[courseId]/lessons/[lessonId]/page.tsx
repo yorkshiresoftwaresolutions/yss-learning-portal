@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, use } from 'react';
 
 // Lesson 1 content only
 const lessonContent: Record<string, Record<string, any>> = {
@@ -225,11 +225,12 @@ function greetUser() {
 export default function LessonPage({
     params,
 }: {
-    params: { courseId: string; lessonId: string };
+    params: Promise<{ courseId: string; lessonId: string }>;
 }) {
+    const { courseId, lessonId } = use(params);
     const [showSolution, setShowSolution] = useState(false);
 
-    const lesson = lessonContent[params.courseId]?.[params.lessonId];
+    const lesson = lessonContent[courseId]?.[lessonId];
 
     if (!lesson) {
         return (
@@ -257,7 +258,7 @@ export default function LessonPage({
                     {/* Breadcrumb */}
                     <nav className="mb-6">
                         <Link
-                            href={`/courses/${params.courseId}/lessons`}
+                            href={`/courses/${courseId}/lessons`}
                             className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm font-medium"
                         >
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -607,7 +608,7 @@ export default function LessonPage({
                         {/* Navigation */}
                         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-gray-200">
                             <Link
-                                href={`/courses/${params.courseId}/lessons`}
+                                href={`/courses/${courseId}/lessons`}
                                 className="btn-outline w-full sm:w-auto"
                             >
                                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
