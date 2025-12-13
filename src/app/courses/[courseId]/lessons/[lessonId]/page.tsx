@@ -263,19 +263,19 @@ function CodePreview({ type, caption }: { type: string; caption: string }) {
                     <span className="text-xs text-gray-500 font-medium">Preview</span>
                 </div>
                 <div className="bg-white p-6">
-                    <h1 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '16px' }}>Hello World</h1>
+                    <h1 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '16px', color: 'black' }}>Hello World</h1>
                     <div>
                         <input
                             type="text"
                             placeholder="Enter your name"
                             disabled
-                            className="border border-gray-300 px-2 py-1 mr-2 text-gray-700"
-                            style={{ fontSize: '16px' }}
+                            className="border border-gray-300 px-2 py-1 mr-2"
+                            style={{ fontSize: '16px', color: 'black' }}
                         />
                         <button
                             disabled
-                            className="bg-gray-200 border border-gray-400 px-3 py-1 text-gray-700"
-                            style={{ fontSize: '16px' }}
+                            className="bg-gray-200 border border-gray-400 px-3 py-1"
+                            style={{ fontSize: '16px', color: 'black' }}
                         >
                             Say Hello
                         </button>
@@ -300,24 +300,24 @@ function CodePreview({ type, caption }: { type: string; caption: string }) {
                     <span className="text-xs text-gray-500 font-medium">Preview</span>
                 </div>
                 <div className="bg-white p-6">
-                    <h1 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '16px' }}>Hello World</h1>
+                    <h1 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '16px', color: 'black' }}>Hello World</h1>
                     <div>
                         <input
                             type="text"
                             value="Sarah"
                             disabled
-                            className="border border-gray-300 px-2 py-1 mr-2 text-gray-700"
-                            style={{ fontSize: '16px' }}
+                            className="border border-gray-300 px-2 py-1 mr-2"
+                            style={{ fontSize: '16px', color: 'black' }}
                         />
                         <button
                             disabled
-                            className="bg-gray-200 border border-gray-400 px-3 py-1 text-gray-700"
-                            style={{ fontSize: '16px' }}
+                            className="bg-gray-200 border border-gray-400 px-3 py-1"
+                            style={{ fontSize: '16px', color: 'black' }}
                         >
                             Say Hello
                         </button>
                     </div>
-                    <p style={{ marginTop: '16px', fontSize: '16px' }}>Hello Sarah, nice to meet you!</p>
+                    <p style={{ marginTop: '16px', fontSize: '16px', color: 'black' }}>Hello Sarah, nice to meet you!</p>
                 </div>
                 <div className="bg-gray-50 px-3 py-2 border-t border-gray-200">
                     <p className="text-xs text-gray-500 italic">{caption}</p>
