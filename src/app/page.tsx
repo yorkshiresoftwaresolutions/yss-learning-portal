@@ -31,7 +31,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-200">
               <Link
                 href="/courses/beginners-web-dev"
-                className="inline-flex items-center justify-center gap-3 bg-white text-yss-primary font-semibold px-8 py-4 rounded-xl text-lg hover:bg-gray-50 transition-all duration-200 shadow-soft-lg hover:shadow-soft-xl hover:-translate-y-0.5 group"
+                className="inline-flex items-center justify-center gap-3 bg-white text-blue-700 font-semibold px-8 py-4 rounded-xl text-lg hover:bg-gray-50 transition-all duration-200 shadow-soft-lg hover:shadow-soft-xl hover:-translate-y-0.5 group"
               >
                 <span>Start Learning Free</span>
                 <svg
@@ -62,7 +62,7 @@ export default function Home() {
         <div className="container-wide">
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-yss-primary font-semibold text-sm uppercase tracking-wider mb-3">
+            <p className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-3">
               Why Choose Us
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -78,7 +78,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 */}
             <div className="card card-hover p-8 group">
-              <div className="icon-box-lg bg-red-50 text-yss-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="icon-box-lg bg-blue-50 text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
@@ -92,7 +92,7 @@ export default function Home() {
 
             {/* Feature 2 */}
             <div className="card card-hover p-8 group">
-              <div className="icon-box-lg bg-blue-50 text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="icon-box-lg bg-indigo-50 text-indigo-600 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
@@ -126,7 +126,7 @@ export default function Home() {
         <div className="container-narrow">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <p className="text-yss-primary font-semibold text-sm uppercase tracking-wider mb-3">
+            <p className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-3">
               Course Overview
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -150,7 +150,7 @@ export default function Home() {
                 key={index}
                 className="flex items-center gap-4 p-5 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors group"
               >
-                <div className="flex-shrink-0 w-10 h-10 bg-yss-primary rounded-xl flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+                <div className="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
                   <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
@@ -180,15 +180,15 @@ export default function Home() {
         <div className="container-wide">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-6">
-              <div className="text-4xl md:text-5xl font-bold text-yss-primary-light mb-2">100%</div>
+              <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">100%</div>
               <div className="text-gray-400 font-medium">Free to Learn</div>
             </div>
             <div className="p-6 border-y md:border-y-0 md:border-x border-gray-800">
-              <div className="text-4xl md:text-5xl font-bold text-yss-primary-light mb-2">Beginner</div>
+              <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">Beginner</div>
               <div className="text-gray-400 font-medium">Friendly Content</div>
             </div>
             <div className="p-6">
-              <div className="text-4xl md:text-5xl font-bold text-yss-primary-light mb-2">Practical</div>
+              <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">Practical</div>
               <div className="text-gray-400 font-medium">Hands-On Exercises</div>
             </div>
           </div>

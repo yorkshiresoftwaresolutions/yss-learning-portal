@@ -21,7 +21,7 @@ export default function Footer() {
                             href="https://yorkshiresoftwaresolutions.co.uk"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-yss-primary-light hover:text-white transition-colors font-medium group"
+                            className="inline-flex items-center gap-2 text-blue-400 hover:text-white transition-colors font-medium group"
                         >
                             <span>Visit our main site</span>
                             <svg

@@ -127,7 +127,7 @@ export default async function CoursePage({
                         <div className="space-y-3">
                             {course.whatYouLearn.map((item: string, index: number) => (
                                 <div key={index} className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors group">
-                                    <div className="flex-shrink-0 w-8 h-8 bg-yss-primary rounded-lg flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+                                    <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
                                         <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                                         </svg>
@@ -148,14 +148,14 @@ export default async function CoursePage({
                                     href={`/courses/${courseId}/lessons/${lesson.id}`}
                                     className="flex items-center gap-4 p-5 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0 group"
                                 >
-                                    <div className="flex-shrink-0 w-10 h-10 bg-gray-100 group-hover:bg-yss-primary rounded-xl flex items-center justify-center transition-colors">
+                                    <div className="flex-shrink-0 w-10 h-10 bg-gray-100 group-hover:bg-blue-600 rounded-xl flex items-center justify-center transition-colors">
                                         <span className="text-gray-600 group-hover:text-white font-semibold transition-colors">{index + 1}</span>
                                     </div>
                                     <div className="flex-grow">
-                                        <h3 className="font-semibold text-gray-900 group-hover:text-yss-primary transition-colors">{lesson.title}</h3>
+                                        <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{lesson.title}</h3>
                                         <p className="text-sm text-gray-500">{lesson.duration}</p>
                                     </div>
-                                    <svg className="w-5 h-5 text-gray-400 group-hover:text-yss-primary group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                     </svg>
                                 </Link>

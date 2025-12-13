@@ -80,7 +80,7 @@ export default async function LessonsPage({
                             >
                                 <div className="flex flex-col md:flex-row items-stretch">
                                     {/* Lesson Number */}
-                                    <div className="hidden md:flex flex-shrink-0 w-24 bg-gradient-to-br from-yss-primary to-yss-primary-dark items-center justify-center">
+                                    <div className="hidden md:flex flex-shrink-0 w-24 bg-gradient-to-br from-blue-600 to-blue-800 items-center justify-center">
                                         <span className="text-3xl font-bold text-white">
                                             {String(index + 1).padStart(2, '0')}
                                         </span>
@@ -90,14 +90,14 @@ export default async function LessonsPage({
                                     <div className="flex-1 p-6 md:p-8">
                                         <div className="flex items-start gap-4">
                                             {/* Mobile lesson number */}
-                                            <div className="md:hidden flex-shrink-0 w-12 h-12 bg-gradient-to-br from-yss-primary to-yss-primary-dark rounded-xl flex items-center justify-center">
+                                            <div className="md:hidden flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center">
                                                 <span className="text-lg font-bold text-white">
                                                     {String(index + 1).padStart(2, '0')}
                                                 </span>
                                             </div>
 
                                             <div className="flex-1">
-                                                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 group-hover:text-yss-primary transition-colors">
+                                                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                                                     {lesson.title}
                                                 </h3>
                                                 <p className="text-gray-600 leading-relaxed mb-4 line-clamp-2">
@@ -121,7 +121,7 @@ export default async function LessonsPage({
                                             </div>
 
                                             {/* Arrow */}
-                                            <div className="hidden sm:flex flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 items-center justify-center group-hover:bg-yss-primary transition-colors">
+                                            <div className="hidden sm:flex flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 items-center justify-center group-hover:bg-blue-600 transition-colors">
                                                 <svg className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                                 </svg>

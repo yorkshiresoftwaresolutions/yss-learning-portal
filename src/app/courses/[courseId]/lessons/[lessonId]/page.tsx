@@ -197,7 +197,7 @@ export default function LessonPage({
                                         {section.steps.map((step: any, stepIndex: number) => (
                                             <div key={stepIndex} className="card p-6 md:p-8">
                                                 <div className="flex items-start gap-4">
-                                                    <div className="flex-shrink-0 w-8 h-8 bg-yss-primary rounded-lg flex items-center justify-center text-white font-semibold text-sm">
+                                                    <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm">
                                                         {stepIndex + 1}
                                                     </div>
                                                     <div className="flex-grow">
@@ -233,8 +233,8 @@ export default function LessonPage({
                                     <div className="space-y-3">
                                         {section.list.map((item: string, itemIndex: number) => (
                                             <div key={itemIndex} className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
-                                                <div className="flex-shrink-0 w-6 h-6 bg-yss-primary/10 rounded-full flex items-center justify-center mt-0.5">
-                                                    <div className="w-2 h-2 bg-yss-primary rounded-full" />
+                                                <div className="flex-shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
+                                                    <div className="w-2 h-2 bg-blue-600 rounded-full" />
                                                 </div>
                                                 <span
                                                     className="text-gray-700 leading-relaxed [&_code]:bg-gray-200 [&_code]:px-2 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_code]:font-mono"
@@ -347,7 +347,7 @@ export default function LessonPage({
                         {/* Summary */}
                         <div className="card p-8 bg-gradient-to-br from-gray-50 to-gray-100/50">
                             <div className="flex items-center gap-4 mb-6">
-                                <div className="w-14 h-14 bg-yss-primary rounded-2xl flex items-center justify-center">
+                                <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center">
                                     <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                                     </svg>

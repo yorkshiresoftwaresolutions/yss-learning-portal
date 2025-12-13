@@ -10,10 +10,10 @@
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, monospace;
 
-  /* Yorkshire Software Solutions Brand Colors */
-  --color-yss-primary: #c62828;
-  --color-yss-primary-dark: #8e0000;
-  --color-yss-primary-light: #ff5f52;
+  /* Yorkshire Software Solutions Brand Colors - Blue */
+  --color-yss-primary: #1e40af;
+  --color-yss-primary-dark: #1e3a8a;
+  --color-yss-primary-light: #3b82f6;
 
   /* Extended color palette */
   --color-slate-850: #1a2332;
@@ -23,7 +23,7 @@
   --shadow-soft: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
   --shadow-soft-lg: 0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-soft-xl: 0 20px 50px -12px rgba(0, 0, 0, 0.15);
-  --shadow-glow: 0 0 20px rgba(198, 40, 40, 0.3);
+  --shadow-glow: 0 0 20px rgba(30, 64, 175, 0.3);
 
   /* Custom border radius */
   --radius-4xl: 2rem;
@@ -55,7 +55,7 @@
   --muted: #f9fafb;
   --muted-foreground: #6b7280;
   --border: #e5e7eb;
-  --ring: #c62828;
+  --ring: #1e40af;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -65,7 +65,7 @@
     --muted: #161b22;
     --muted-foreground: #8b949e;
     --border: #30363d;
-    --ring: #ff5f52;
+    --ring: #3b82f6;
   }
 }
 
@@ -97,7 +97,7 @@ p {
 
 /* Selection styling */
 ::selection {
-  background-color: rgba(198, 40, 40, 0.2);
+  background-color: rgba(30, 64, 175, 0.2);
   color: inherit;
 }
 
@@ -192,7 +192,7 @@ p {
 .card-interactive:hover {
   box-shadow: var(--shadow-soft-xl);
   transform: translateY(-4px);
-  border-color: rgba(198, 40, 40, 0.2);
+  border-color: rgba(30, 64, 175, 0.2);
 }
 
 /* Section styles */
@@ -292,7 +292,7 @@ p {
 }
 
 .badge-primary {
-  background-color: rgba(198, 40, 40, 0.1);
+  background-color: rgba(30, 64, 175, 0.1);
   color: var(--color-yss-primary);
 }
 
@@ -376,24 +376,24 @@ p {
   font-size: 1.5rem;
 }
 
-/* Gradient backgrounds */
+/* Gradient backgrounds - Blue theme */
 .bg-gradient-primary {
-  background: linear-gradient(135deg, #c62828 0%, #8e0000 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
 }
 
 .bg-gradient-subtle {
-  background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
 }
 
 .bg-hero-pattern {
-  background: linear-gradient(135deg, #c62828 0%, #8e0000 50%, #5d0000 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #172554 100%);
 }
 
 .bg-hero-mesh {
   background-image:
-    radial-gradient(at 40% 20%, rgba(255, 95, 82, 0.15) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(198, 40, 40, 0.2) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, rgba(142, 0, 0, 0.15) 0px, transparent 50%);
+    radial-gradient(at 40% 20%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(30, 64, 175, 0.2) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(30, 58, 138, 0.15) 0px, transparent 50%);
 }
 
 /* Pattern overlays */
