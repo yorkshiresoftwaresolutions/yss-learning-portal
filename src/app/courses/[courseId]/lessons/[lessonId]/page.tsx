@@ -25,118 +25,133 @@ const lessonContent: Record<string, Record<string, any>> = {
                         {
                             title: 'Start a New Pen',
                             content: 'Once signed in, click "Create" in the top navigation and select "New Pen." You\'ll see three panels at the top: HTML (left), CSS (middle), and JS (right). The bottom shows your live preview.',
+                            image: '/codepen.jpg',
                         },
                     ],
                 },
                 {
-                    title: 'Step 1: Build the Page Structure (HTML)',
-                    content: 'HTML defines what content appears on your page. Let\'s add all the elements we need.',
+                    title: 'Step 1: Displaying Text',
+                    content: 'Let\'s start with the basics — displaying text on a web page using HTML.',
                     steps: [
                         {
-                            title: 'Add the HTML Code',
-                            content: 'Click in the HTML panel (top-left) and type the following code exactly as shown:',
-                            code: `<h1>Hello World</h1>
-
-<input type="text" id="name-input" placeholder="Enter your name">
-<button onclick="greetUser()">Say Hello</button>
-
-<p id="greeting-message"></p>`,
+                            title: 'Add a Heading',
+                            content: 'Click in the HTML panel (top-left) and type the following code:',
+                            code: `<h1>Hello World</h1>`,
                             codeLanguage: 'HTML',
                         },
                         {
                             title: 'Check Your Result',
-                            content: 'Look at the preview area at the bottom. Your page should look like this:',
+                            content: 'Look at the preview area at the bottom. You should see large bold text that says "Hello World". The <h1> tag creates a main heading.',
                             preview: {
-                                type: 'html-only',
-                                caption: 'Basic HTML elements (unstyled)',
+                                type: 'step1-heading',
+                                caption: 'Your first HTML heading!',
                             },
                         },
                     ],
-                    note: 'The "id" attributes (name-input and greeting-message) give elements unique names so JavaScript can find and modify them. The button\'s "onclick" tells it which function to run when clicked.',
+                    note: 'HTML uses "tags" like <h1> to tell the browser what to display. Tags usually come in pairs: an opening tag <h1> and a closing tag </h1>.',
                 },
                 {
-                    title: 'Step 2: Add the Interactive Logic (JavaScript)',
-                    content: 'JavaScript makes your page interactive. Let\'s write a function that responds when the button is clicked.',
+                    title: 'Step 2: Adding a Greeting Message',
+                    content: 'Now let\'s add a paragraph with a greeting message below the heading.',
                     steps: [
                         {
-                            title: 'Add the JavaScript Code',
-                            content: 'Click in the JS panel (top-right) and type the following code:',
-                            code: `function greetUser() {
-  // Get what the user typed
-  var name = document.getElementById("name-input").value;
+                            title: 'Add a Paragraph',
+                            content: 'Add this code below your <h1> tag:',
+                            code: `<p>Hello friend, nice to meet you!</p>`,
+                            codeLanguage: 'HTML',
+                        },
+                        {
+                            title: 'Check Your Result',
+                            content: 'You should now see the heading and a greeting message below it. The <p> tag creates a paragraph of text.',
+                            preview: {
+                                type: 'step2-greeting',
+                                caption: 'A heading with a greeting message',
+                            },
+                        },
+                    ],
+                    note: 'Your HTML panel should now have two lines: the <h1> heading and the <p> paragraph.',
+                },
+                {
+                    title: 'Step 3: Creating a Button to Show/Hide the Message',
+                    content: 'Let\'s make things interactive! We\'ll add a button that shows and hides the greeting message.',
+                    steps: [
+                        {
+                            title: 'Add an ID to the Paragraph',
+                            content: 'First, update your paragraph to give it a unique name (called an "id") so JavaScript can find it. Change your paragraph to:',
+                            code: `<p id="greeting">Hello friend, nice to meet you!</p>`,
+                            codeLanguage: 'HTML',
+                        },
+                        {
+                            title: 'Add a Button',
+                            content: 'Add this button code between your <h1> and <p> tags:',
+                            code: `<button onclick="toggleGreeting()">Show/Hide Greeting</button>`,
+                            codeLanguage: 'HTML',
+                        },
+                        {
+                            title: 'Add the JavaScript',
+                            content: 'Now click in the JS panel (top-right) and add this code that runs when the button is clicked:',
+                            code: `function toggleGreeting() {
+  var greeting = document.getElementById("greeting");
 
-  // Create the greeting message
-  var message = "Hello " + name + ", nice to meet you!";
-
-  // Display the message on the page
-  document.getElementById("greeting-message").innerHTML = message;
+  if (greeting.style.display === "none") {
+    greeting.style.display = "block";
+  } else {
+    greeting.style.display = "none";
+  }
 }`,
                             codeLanguage: 'JavaScript',
                         },
                         {
                             title: 'Test It!',
-                            content: 'Type your name in the text box and click "Say Hello". Your personalized greeting should appear below the button:',
+                            content: 'Click the "Show/Hide Greeting" button. The message should disappear and reappear each time you click!',
                             preview: {
-                                type: 'with-greeting',
-                                caption: 'After clicking the button, a greeting appears!',
+                                type: 'step3-button',
+                                caption: 'Click the button to toggle the greeting',
                             },
                         },
                     ],
-                    note: 'document.getElementById() finds an element by its id. The .value property gets what\'s typed in an input box. The .innerHTML property lets us change what text appears inside an element.',
+                    note: 'The "id" attribute gives an element a unique name. JavaScript uses document.getElementById() to find elements by their id, then we can change their style.display to show or hide them.',
                 },
                 {
-                    title: 'Step 3: Style Your Page (CSS)',
-                    content: 'CSS controls how your page looks. Let\'s make it more visually appealing.',
+                    title: 'Step 4: Adding a Text Box for the User\'s Name',
+                    content: 'Now let\'s personalize the greeting by letting users enter their name!',
                     steps: [
                         {
-                            title: 'Add the CSS Code',
-                            content: 'Click in the CSS panel (top-middle) and type the following code:',
-                            code: `body {
-  background-color: #282c34;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding-top: 50px;
-}
-
-input {
-  padding: 10px;
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #61dafb;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #4fa8c7;
-}
-
-#greeting-message {
-  font-size: 24px;
-  margin-top: 20px;
-  color: #61dafb;
-}`,
-                            codeLanguage: 'CSS',
+                            title: 'Add a Text Input',
+                            content: 'Add this input box after your <h1> tag and before the button:',
+                            code: `<input type="text" id="nameInput" placeholder="Enter your name">`,
+                            codeLanguage: 'HTML',
                         },
                         {
-                            title: 'See the Transformation',
-                            content: 'Your page should now look polished and professional:',
+                            title: 'Update the Button',
+                            content: 'Change your button to call a new function:',
+                            code: `<button onclick="showGreeting()">Say Hello</button>`,
+                            codeLanguage: 'HTML',
+                        },
+                        {
+                            title: 'Update the JavaScript',
+                            content: 'Replace all the code in your JS panel with this new code:',
+                            code: `function showGreeting() {
+  var name = document.getElementById("nameInput").value;
+  var greeting = document.getElementById("greeting");
+
+  greeting.innerHTML = "Hello " + name + ", nice to meet you!";
+}`,
+                            codeLanguage: 'JavaScript',
+                        },
+                        {
+                            title: 'Test It!',
+                            content: 'Type your name in the text box and click "Say Hello". The greeting should now include your name!',
                             preview: {
-                                type: 'styled',
-                                caption: 'The finished greeting card with CSS styling',
+                                type: 'step4-personalized',
+                                caption: 'A personalized greeting with your name!',
                             },
                         },
                     ],
-                    note: 'CSS uses selectors to target elements: "body" targets the whole page, "input" and "button" target those elements, and "#greeting-message" targets the element with that specific id. The hover style makes the button change when you move your mouse over it.',
+                    note: 'The input\'s .value property gets whatever the user typed. We use .innerHTML to change what text appears inside the paragraph.',
                 },
                 {
-                    title: 'Step 4: Save Your Work',
+                    title: 'Step 5: Save Your Work',
                     content: 'Don\'t lose your creation! Save it to your CodePen account.',
                     steps: [
                         {
@@ -155,66 +170,33 @@ button:hover {
                 description: 'Now that your greeting card works, try these modifications to learn more:',
                 tasks: [
                     'Change the greeting to say "Welcome" instead of "Hello"',
-                    'Change the background color to navy blue (#001f3f) or another color you like',
-                    'Add a second button that says "Clear" and clears the greeting message',
-                    'Make the greeting message appear in a different color like green or orange',
+                    'Add a second paragraph below the greeting with a fun fact about yourself',
+                    'Try adding a "Clear" button that resets the greeting to its original message',
+                    'Change "Hello World" to your own custom heading',
                 ],
                 hint: 'Don\'t be afraid to experiment! If something breaks, you can always undo with Ctrl+Z (or Cmd+Z on Mac).',
                 solution: `=== HTML Panel ===
 <h1>Hello World</h1>
 
-<input type="text" id="name-input" placeholder="Enter your name">
-<button onclick="greetUser()">Say Hello</button>
+<input type="text" id="nameInput" placeholder="Enter your name">
+<button onclick="showGreeting()">Say Hello</button>
 
-<p id="greeting-message"></p>
-
-
-=== CSS Panel ===
-body {
-  background-color: #282c34;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding-top: 50px;
-}
-
-input {
-  padding: 10px;
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #61dafb;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #4fa8c7;
-}
-
-#greeting-message {
-  font-size: 24px;
-  margin-top: 20px;
-  color: #61dafb;
-}
+<p id="greeting">Hello friend, nice to meet you!</p>
 
 
 === JS Panel ===
-function greetUser() {
-  var name = document.getElementById("name-input").value;
-  var message = "Hello " + name + ", nice to meet you!";
-  document.getElementById("greeting-message").innerHTML = message;
+function showGreeting() {
+  var name = document.getElementById("nameInput").value;
+  var greeting = document.getElementById("greeting");
+
+  greeting.innerHTML = "Hello " + name + ", nice to meet you!";
 }`,
                 solutionNote: 'Copy each section into the corresponding panel in CodePen. The code is separated by panel for clarity.',
             },
             summary: [
-                '<strong>HTML</strong> creates the structure: headings (&lt;h1&gt;), text inputs (&lt;input&gt;), buttons (&lt;button&gt;), and paragraphs (&lt;p&gt;). The "id" attribute gives elements unique names.',
-                '<strong>JavaScript</strong> adds interactivity: functions run when events happen (like clicking). getElementById() finds elements, .value reads input, and .innerHTML changes content.',
-                '<strong>CSS</strong> controls appearance: selectors target elements, and properties like background-color, font-size, and padding change how they look.',
+                '<strong>HTML tags</strong> create content: &lt;h1&gt; for headings, &lt;p&gt; for paragraphs, &lt;button&gt; for buttons, and &lt;input&gt; for text boxes.',
+                '<strong>The id attribute</strong> gives elements unique names so JavaScript can find and change them.',
+                '<strong>JavaScript functions</strong> run when events happen (like clicking a button). They can read input values and change what\'s displayed on the page.',
             ],
             nextSteps: {
                 title: 'What\'s Next?',
@@ -251,135 +233,84 @@ function greetUser() {
 
 // Preview component to show what the user should see
 function CodePreview({ type, caption }: { type: string; caption: string }) {
-    if (type === 'html-only') {
-        return (
-            <div className="mt-4 rounded-lg border-2 border-dashed border-gray-300 overflow-hidden">
-                <div className="bg-gray-100 px-3 py-1.5 border-b border-gray-300 flex items-center gap-2">
-                    <div className="flex gap-1">
-                        <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                    </div>
-                    <span className="text-xs text-gray-500 font-medium">Preview</span>
+    const PreviewWrapper = ({ children }: { children: React.ReactNode }) => (
+        <div className="mt-4 rounded-lg border-2 border-dashed border-gray-300 overflow-hidden">
+            <div className="bg-gray-100 px-3 py-1.5 border-b border-gray-300 flex items-center gap-2">
+                <div className="flex gap-1">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
                 </div>
-                <div className="bg-white p-6">
-                    <h1 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '16px', color: 'black' }}>Hello World</h1>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder="Enter your name"
-                            disabled
-                            className="border border-gray-300 px-2 py-1 mr-2"
-                            style={{ fontSize: '16px', color: 'black' }}
-                        />
-                        <button
-                            disabled
-                            className="bg-gray-200 border border-gray-400 px-3 py-1"
-                            style={{ fontSize: '16px', color: 'black' }}
-                        >
-                            Say Hello
-                        </button>
-                    </div>
-                </div>
-                <div className="bg-gray-50 px-3 py-2 border-t border-gray-200">
-                    <p className="text-xs text-gray-500 italic">{caption}</p>
-                </div>
+                <span className="text-xs text-gray-500 font-medium">Preview</span>
             </div>
+            <div className="bg-white p-6">
+                {children}
+            </div>
+            <div className="bg-gray-50 px-3 py-2 border-t border-gray-200">
+                <p className="text-xs text-gray-500 italic">{caption}</p>
+            </div>
+        </div>
+    );
+
+    // Step 1: Just a heading
+    if (type === 'step1-heading') {
+        return (
+            <PreviewWrapper>
+                <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', margin: 0 }}>Hello World</h1>
+            </PreviewWrapper>
         );
     }
 
-    if (type === 'with-greeting') {
+    // Step 2: Heading + greeting paragraph
+    if (type === 'step2-greeting') {
         return (
-            <div className="mt-4 rounded-lg border-2 border-dashed border-gray-300 overflow-hidden">
-                <div className="bg-gray-100 px-3 py-1.5 border-b border-gray-300 flex items-center gap-2">
-                    <div className="flex gap-1">
-                        <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                    </div>
-                    <span className="text-xs text-gray-500 font-medium">Preview</span>
-                </div>
-                <div className="bg-white p-6">
-                    <h1 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '16px', color: 'black' }}>Hello World</h1>
-                    <div>
-                        <input
-                            type="text"
-                            value="Sarah"
-                            disabled
-                            className="border border-gray-300 px-2 py-1 mr-2"
-                            style={{ fontSize: '16px', color: 'black' }}
-                        />
-                        <button
-                            disabled
-                            className="bg-gray-200 border border-gray-400 px-3 py-1"
-                            style={{ fontSize: '16px', color: 'black' }}
-                        >
-                            Say Hello
-                        </button>
-                    </div>
-                    <p style={{ marginTop: '16px', fontSize: '16px', color: 'black' }}>Hello Sarah, nice to meet you!</p>
-                </div>
-                <div className="bg-gray-50 px-3 py-2 border-t border-gray-200">
-                    <p className="text-xs text-gray-500 italic">{caption}</p>
-                </div>
-            </div>
+            <PreviewWrapper>
+                <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', marginBottom: '16px' }}>Hello World</h1>
+                <p style={{ color: 'black', margin: 0 }}>Hello friend, nice to meet you!</p>
+            </PreviewWrapper>
         );
     }
 
-    if (type === 'styled') {
+    // Step 3: Heading + button + greeting (toggleable)
+    if (type === 'step3-button') {
         return (
-            <div className="mt-4 rounded-lg border-2 border-dashed border-gray-300 overflow-hidden">
-                <div className="bg-gray-100 px-3 py-1.5 border-b border-gray-300 flex items-center gap-2">
-                    <div className="flex gap-1">
-                        <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                    </div>
-                    <span className="text-xs text-gray-500 font-medium">Preview</span>
+            <PreviewWrapper>
+                <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', marginBottom: '16px' }}>Hello World</h1>
+                <button
+                    disabled
+                    className="bg-gray-200 border border-gray-400 px-3 py-1 mb-4"
+                    style={{ fontSize: '16px', color: 'black' }}
+                >
+                    Show/Hide Greeting
+                </button>
+                <p style={{ color: 'black', margin: 0 }}>Hello friend, nice to meet you!</p>
+            </PreviewWrapper>
+        );
+    }
+
+    // Step 4: Full personalized greeting
+    if (type === 'step4-personalized') {
+        return (
+            <PreviewWrapper>
+                <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', marginBottom: '16px' }}>Hello World</h1>
+                <div className="mb-4">
+                    <input
+                        type="text"
+                        value="Sarah"
+                        disabled
+                        className="border border-gray-300 px-2 py-1 mr-2"
+                        style={{ fontSize: '16px', color: 'black' }}
+                    />
+                    <button
+                        disabled
+                        className="bg-gray-200 border border-gray-400 px-3 py-1"
+                        style={{ fontSize: '16px', color: 'black' }}
+                    >
+                        Say Hello
+                    </button>
                 </div>
-                <div style={{
-                    backgroundColor: '#282c34',
-                    color: 'white',
-                    fontFamily: 'Arial, sans-serif',
-                    textAlign: 'center',
-                    padding: '30px 20px',
-                }}>
-                    <h1 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '20px' }}>Hello World</h1>
-                    <div>
-                        <input
-                            type="text"
-                            value="Sarah"
-                            disabled
-                            style={{
-                                padding: '10px',
-                                fontSize: '16px',
-                                marginRight: '10px',
-                                border: 'none',
-                            }}
-                        />
-                        <button
-                            disabled
-                            style={{
-                                padding: '10px 20px',
-                                fontSize: '16px',
-                                backgroundColor: '#61dafb',
-                                border: 'none',
-                                cursor: 'pointer',
-                            }}
-                        >
-                            Say Hello
-                        </button>
-                    </div>
-                    <p style={{
-                        fontSize: '24px',
-                        marginTop: '20px',
-                        color: '#61dafb',
-                    }}>Hello Sarah, nice to meet you!</p>
-                </div>
-                <div className="bg-gray-50 px-3 py-2 border-t border-gray-200">
-                    <p className="text-xs text-gray-500 italic">{caption}</p>
-                </div>
-            </div>
+                <p style={{ color: 'black', margin: 0 }}>Hello Sarah, nice to meet you!</p>
+            </PreviewWrapper>
         );
     }
 
@@ -529,6 +460,15 @@ export default function LessonPage({
                                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                                                 </svg>
                                                             </a>
+                                                        )}
+                                                        {step.image && (
+                                                            <div className="mt-4 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                                                <img
+                                                                    src={step.image}
+                                                                    alt="CodePen interface"
+                                                                    className="w-full h-auto"
+                                                                />
+                                                            </div>
                                                         )}
                                                         {step.preview && (
                                                             <CodePreview type={step.preview.type} caption={step.preview.caption} />
