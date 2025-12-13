@@ -1,112 +1,342 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, use } from 'react';
 
 // Lesson 1 content only
 const lessonContent: Record<string, Record<string, any>> = {
     'beginners-web-dev': {
         '1': {
             id: '1',
-            title: 'Creating Your First Program',
+            title: 'Your First Program (Interactive Greeting Card)',
             courseTitle: 'A Beginner\'s Guide to Web Development',
-            introduction: 'Welcome to your first lesson! In this lesson, you\'ll learn what HTML is and how to write your first simple web page. By the end, you\'ll have created a working HTML file that displays content in a web browser.',
+            duration: '1-2 Hours (Self-Paced)',
+            introduction: 'Welcome to your first web development lesson! The goal is to get you coding immediately using three fundamental technologies that power the entire web: HTML for structure and content, CSS for style and appearance, and JavaScript for interactivity. You\'ll use CodePen to write and see your code results instantly—no setup required!',
             sections: [
                 {
-                    title: 'What is HTML?',
-                    content: 'HTML stands for HyperText Markup Language. It\'s the standard language used to create web pages. HTML uses "tags" to structure content and tell browsers how to display it.',
-                    note: 'HTML is not a programming language - it\'s a markup language. It describes the structure and content of web pages.',
-                },
-                {
-                    title: 'Your First HTML Page',
-                    content: 'Every HTML page starts with a basic structure. Let\'s build one step by step.',
+                    title: 'Getting Started',
+                    content: 'First, let\'s set up your coding environment. CodePen is a free online code editor where you can write HTML, CSS, and JavaScript and see the results instantly.',
                     steps: [
                         {
-                            title: 'Step 1: Create a new file',
-                            content: 'Create a new file on your computer and name it index.html. You can use any text editor like Notepad (Windows), TextEdit (Mac), or a code editor like VS Code.',
+                            title: 'Create a Free CodePen Account',
+                            content: 'Go to CodePen and sign up for a free account. This allows you to save your projects (called "Pens") and share them.',
+                            link: 'https://codepen.io/',
                         },
                         {
-                            title: 'Step 2: Add the basic HTML structure',
-                            content: 'Type the following code into your file:',
-                            code: `<!DOCTYPE html>
-<html>
-<head>
-    <title>My First Web Page</title>
-</head>
-<body>
-    <h1>Hello, World!</h1>
-    <p>This is my first web page.</p>
-</body>
-</html>`,
-                        },
-                        {
-                            title: 'Step 3: Save and open in a browser',
-                            content: 'Save your file, then open it in a web browser (like Chrome, Firefox, or Safari). You should see your heading and paragraph displayed!',
+                            title: 'Start a New Pen',
+                            content: 'Once signed in, click "Create" in the top navigation and select "New Pen." You\'ll see three panels at the top: HTML (left), CSS (middle), and JS (right). The bottom shows your live preview.',
+                            image: '/codepen.jpg',
                         },
                     ],
                 },
                 {
-                    title: 'Understanding the Code',
-                    content: 'Let\'s break down what each part does:',
-                    list: [
-                        '<code className="bg-gray-100 px-2 py-1 rounded text-sm">&lt;!DOCTYPE html&gt;</code> - Tells the browser this is an HTML5 document',
-                        '<code className="bg-gray-100 px-2 py-1 rounded text-sm">&lt;html&gt;</code> - The root element that contains all other elements',
-                        '<code className="bg-gray-100 px-2 py-1 rounded text-sm">&lt;head&gt;</code> - Contains information about the page (not displayed)',
-                        '<code className="bg-gray-100 px-2 py-1 rounded text-sm">&lt;title&gt;</code> - Sets the page title (shown in browser tab)',
-                        '<code className="bg-gray-100 px-2 py-1 rounded text-sm">&lt;body&gt;</code> - Contains all visible content',
-                        '<code className="bg-gray-100 px-2 py-1 rounded text-sm">&lt;h1&gt;</code> - A main heading',
-                        '<code className="bg-gray-100 px-2 py-1 rounded text-sm">&lt;p&gt;</code> - A paragraph',
+                    title: 'Step 1: Displaying Text',
+                    content: 'Let\'s start with the basics — displaying text on a web page using HTML.',
+                    steps: [
+                        {
+                            title: 'Add a Heading',
+                            content: 'Click in the HTML panel (top-left) and type the following code:',
+                            code: `<h1>Hello World</h1>`,
+                            codeLanguage: 'HTML',
+                        },
+                        {
+                            title: 'Check Your Result',
+                            content: 'Look at the preview area at the bottom. You should see large bold text that says "Hello World". The <h1> tag creates a main heading.',
+                            preview: {
+                                type: 'step1-heading',
+                                caption: 'Your first HTML heading!',
+                            },
+                        },
+                    ],
+                    note: 'HTML uses "tags" like <h1> to tell the browser what to display. Tags usually come in pairs: an opening tag <h1> and a closing tag </h1>.',
+                },
+                {
+                    title: 'Step 2: Adding a Greeting Message',
+                    content: 'Now let\'s add a paragraph with a greeting message below the heading.',
+                    steps: [
+                        {
+                            title: 'Add a Paragraph',
+                            content: 'Add this code below your <h1> tag:',
+                            code: `<p>Hello friend, nice to meet you!</p>`,
+                            codeLanguage: 'HTML',
+                        },
+                        {
+                            title: 'Check Your Result',
+                            content: 'You should now see the heading and a greeting message below it. The <p> tag creates a paragraph of text.',
+                            preview: {
+                                type: 'step2-greeting',
+                                caption: 'A heading with a greeting message',
+                            },
+                        },
+                    ],
+                    note: 'Your HTML panel should now have two lines: the <h1> heading and the <p> paragraph.',
+                },
+                {
+                    title: 'Step 3: Creating a Button to Show/Hide the Message',
+                    content: 'Let\'s make things interactive! We\'ll add a button that shows and hides the greeting message.',
+                    steps: [
+                        {
+                            title: 'Add an ID to the Paragraph',
+                            content: 'First, update your paragraph to give it a unique name (called an "id") so JavaScript can find it. Change your paragraph to:',
+                            code: `<p id="greeting">Hello friend, nice to meet you!</p>`,
+                            codeLanguage: 'HTML',
+                        },
+                        {
+                            title: 'Add a Button',
+                            content: 'Add this button code between your <h1> and <p> tags:',
+                            code: `<button onclick="toggleGreeting()">Show/Hide Greeting</button>`,
+                            codeLanguage: 'HTML',
+                        },
+                        {
+                            title: 'Add the JavaScript',
+                            content: 'Now click in the JS panel (top-right) and add this code that runs when the button is clicked:',
+                            code: `function toggleGreeting() {
+  var greeting = document.getElementById("greeting");
+
+  if (greeting.style.display === "none") {
+    greeting.style.display = "block";
+  } else {
+    greeting.style.display = "none";
+  }
+}`,
+                            codeLanguage: 'JavaScript',
+                        },
+                        {
+                            title: 'Test It!',
+                            content: 'Click the "Show/Hide Greeting" button. The message should disappear and reappear each time you click!',
+                            preview: {
+                                type: 'step3-button',
+                                caption: 'Click the button to toggle the greeting',
+                            },
+                        },
+                    ],
+                    note: 'The "id" attribute gives an element a unique name. JavaScript uses document.getElementById() to find elements by their id, then we can change their style.display to show or hide them.',
+                },
+                {
+                    title: 'Step 4: Adding a Text Box for the User\'s Name',
+                    content: 'Now let\'s personalize the greeting by letting users enter their name!',
+                    steps: [
+                        {
+                            title: 'Add a Text Input',
+                            content: 'Add this input box after your <h1> tag and before the button:',
+                            code: `<input type="text" id="nameInput" placeholder="Enter your name">`,
+                            codeLanguage: 'HTML',
+                        },
+                        {
+                            title: 'Update the Button',
+                            content: 'Change your button to call a new function:',
+                            code: `<button onclick="showGreeting()">Say Hello</button>`,
+                            codeLanguage: 'HTML',
+                        },
+                        {
+                            title: 'Update the JavaScript',
+                            content: 'Replace all the code in your JS panel with this new code:',
+                            code: `function showGreeting() {
+  var name = document.getElementById("nameInput").value;
+  var greeting = document.getElementById("greeting");
+
+  greeting.innerHTML = "Hello " + name + ", nice to meet you!";
+}`,
+                            codeLanguage: 'JavaScript',
+                        },
+                        {
+                            title: 'Test It!',
+                            content: 'Type your name in the text box and click "Say Hello". The greeting should now include your name!',
+                            preview: {
+                                type: 'step4-personalized',
+                                caption: 'A personalized greeting with your name!',
+                            },
+                        },
+                    ],
+                    note: 'The input\'s .value property gets whatever the user typed. We use .innerHTML to change what text appears inside the paragraph.',
+                },
+                {
+                    title: 'Step 5: Save Your Work',
+                    content: 'Don\'t lose your creation! Save it to your CodePen account.',
+                    steps: [
+                        {
+                            title: 'Save Your Pen',
+                            content: 'Click the "Save" button in the top-right corner of CodePen. Your Pen will be saved to your account and you\'ll get a unique URL you can share.',
+                        },
+                        {
+                            title: 'Give It a Title',
+                            content: 'Click on "Untitled" at the top of the page and rename your Pen to something like "My Greeting Card" so you can find it later.',
+                        },
                     ],
                 },
             ],
             exercise: {
-                title: 'Practice Exercise',
-                description: 'Create a web page about yourself with:',
+                title: 'Practice Challenges',
+                description: 'Now that your greeting card works, try these modifications to learn more:',
                 tasks: [
-                    'A title of your choice',
-                    'A main heading with your name',
-                    'Two or three paragraphs about your interests',
+                    'Change the greeting to say "Welcome" instead of "Hello"',
+                    'Add a second paragraph below the greeting with a fun fact about yourself',
+                    'Try adding a "Clear" button that resets the greeting to its original message',
+                    'Change "Hello World" to your own custom heading',
                 ],
-                hint: 'Try it yourself before revealing the solution!',
-                solution: `<!DOCTYPE html>
-<html>
-<head>
-    <title>About Me</title>
-</head>
-<body>
-    <h1>Sarah Johnson</h1>
-    <p>I'm a student learning web development. I've always been curious about how websites work.</p>
-    <p>In my free time, I enjoy reading, hiking, and photography.</p>
-    <p>I'm excited to learn more about coding and build my own projects!</p>
-</body>
-</html>`,
-                solutionNote: 'Your solution doesn\'t need to match this exactly. The important part is understanding the structure!',
+                hint: 'Don\'t be afraid to experiment! If something breaks, you can always undo with Ctrl+Z (or Cmd+Z on Mac).',
+                solution: `=== HTML Panel ===
+<h1>Hello World</h1>
+
+<input type="text" id="nameInput" placeholder="Enter your name">
+<button onclick="showGreeting()">Say Hello</button>
+
+<p id="greeting">Hello friend, nice to meet you!</p>
+
+
+=== JS Panel ===
+function showGreeting() {
+  var name = document.getElementById("nameInput").value;
+  var greeting = document.getElementById("greeting");
+
+  greeting.innerHTML = "Hello " + name + ", nice to meet you!";
+}`,
+                solutionNote: 'Copy each section into the corresponding panel in CodePen. The code is separated by panel for clarity.',
             },
             summary: [
-                'What HTML is and what it\'s used for',
-                'The basic structure of an HTML document',
-                'How to create headings and paragraphs',
-                'How to open an HTML file in a browser',
+                '<strong>HTML tags</strong> create content: &lt;h1&gt; for headings, &lt;p&gt; for paragraphs, &lt;button&gt; for buttons, and &lt;input&gt; for text boxes.',
+                '<strong>The id attribute</strong> gives elements unique names so JavaScript can find and change them.',
+                '<strong>JavaScript functions</strong> run when events happen (like clicking a button). They can read input values and change what\'s displayed on the page.',
+            ],
+            nextSteps: {
+                title: 'What\'s Next?',
+                description: 'You\'re ready for a comprehensive, structured learning path! We recommend freeCodeCamp\'s Responsive Web Design Certification — a completely free, self-paced course with hundreds of interactive exercises. Upon completion, you\'ll earn a verified certification that you can add to your LinkedIn profile or CV to showcase your skills.',
+                resources: [
+                    {
+                        name: 'freeCodeCamp Responsive Web Design Certification',
+                        url: 'https://www.freecodecamp.org/learn/responsive-web-design-v9',
+                        description: 'Free • Self-paced • Earn a certificate',
+                    },
+                ],
+            },
+            additionalResources: [
+                {
+                    topic: 'CodePen Basics',
+                    url: 'https://www.youtube.com/watch?v=zbzTAXF1bOc',
+                },
+                {
+                    topic: 'HTML Tag Reference',
+                    url: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax',
+                },
+                {
+                    topic: 'CSS Selectors Explained',
+                    url: 'http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/css/css_syntax.asp.html',
+                },
+                {
+                    topic: 'JavaScript getElementById',
+                    url: 'https://www.youtube.com/watch?v=RSg2DroZINM',
+                },
             ],
         },
     },
 };
 
+// Preview component to show what the user should see
+function CodePreview({ type, caption }: { type: string; caption: string }) {
+    const PreviewWrapper = ({ children }: { children: React.ReactNode }) => (
+        <div className="mt-4 rounded-lg border-2 border-dashed border-gray-300 overflow-hidden">
+            <div className="bg-gray-100 px-3 py-1.5 border-b border-gray-300 flex items-center gap-2">
+                <div className="flex gap-1">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                </div>
+                <span className="text-xs text-gray-500 font-medium">Preview</span>
+            </div>
+            <div className="bg-white p-6">
+                {children}
+            </div>
+            <div className="bg-gray-50 px-3 py-2 border-t border-gray-200">
+                <p className="text-xs text-gray-500 italic">{caption}</p>
+            </div>
+        </div>
+    );
+
+    // Step 1: Just a heading
+    if (type === 'step1-heading') {
+        return (
+            <PreviewWrapper>
+                <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', margin: 0 }}>Hello World</h1>
+            </PreviewWrapper>
+        );
+    }
+
+    // Step 2: Heading + greeting paragraph
+    if (type === 'step2-greeting') {
+        return (
+            <PreviewWrapper>
+                <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', marginBottom: '16px' }}>Hello World</h1>
+                <p style={{ color: 'black', margin: 0 }}>Hello friend, nice to meet you!</p>
+            </PreviewWrapper>
+        );
+    }
+
+    // Step 3: Heading + button + greeting (toggleable)
+    if (type === 'step3-button') {
+        return (
+            <PreviewWrapper>
+                <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', marginBottom: '16px' }}>Hello World</h1>
+                <button
+                    disabled
+                    className="bg-gray-200 border border-gray-400 px-3 py-1 mb-4"
+                    style={{ fontSize: '16px', color: 'black' }}
+                >
+                    Show/Hide Greeting
+                </button>
+                <p style={{ color: 'black', margin: 0 }}>Hello friend, nice to meet you!</p>
+            </PreviewWrapper>
+        );
+    }
+
+    // Step 4: Full personalized greeting
+    if (type === 'step4-personalized') {
+        return (
+            <PreviewWrapper>
+                <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', marginBottom: '16px' }}>Hello World</h1>
+                <div className="mb-4">
+                    <input
+                        type="text"
+                        value="Sarah"
+                        disabled
+                        className="border border-gray-300 px-2 py-1 mr-2"
+                        style={{ fontSize: '16px', color: 'black' }}
+                    />
+                    <button
+                        disabled
+                        className="bg-gray-200 border border-gray-400 px-3 py-1"
+                        style={{ fontSize: '16px', color: 'black' }}
+                    >
+                        Say Hello
+                    </button>
+                </div>
+                <p style={{ color: 'black', margin: 0 }}>Hello Sarah, nice to meet you!</p>
+            </PreviewWrapper>
+        );
+    }
+
+    return null;
+}
+
 export default function LessonPage({
     params,
 }: {
-    params: { courseId: string; lessonId: string };
+    params: Promise<{ courseId: string; lessonId: string }>;
 }) {
+    const { courseId, lessonId } = use(params);
     const [showSolution, setShowSolution] = useState(false);
 
-    const lesson = lessonContent[params.courseId]?.[params.lessonId];
+    const lesson = lessonContent[courseId]?.[lessonId];
 
     if (!lesson) {
         return (
             <div className="bg-white min-h-screen">
-                <section className="bg-gradient-to-r from-yss-primary to-yss-primary-dark text-white py-16">
-                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-                        <h1 className="text-4xl font-bold">Lesson Not Found</h1>
+                <section className="relative overflow-hidden bg-hero-pattern">
+                    <div className="relative container-wide py-20">
+                        <h1 className="text-3xl font-bold text-white">Lesson Not Found</h1>
+                        <p className="text-white/80 mt-4">The lesson you're looking for doesn't exist.</p>
+                        <Link href="/" className="btn-primary mt-6 inline-flex">
+                            Return Home
+                        </Link>
                     </div>
                 </section>
             </div>
@@ -116,57 +346,135 @@ export default function LessonPage({
     return (
         <div className="bg-white min-h-screen">
             {/* Lesson Header */}
-            <section className="bg-gradient-to-r from-yss-primary to-yss-primary-dark text-white py-16">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-                    <div className="mb-6">
-                        <Link href={`/courses/${params.courseId}/lessons`} className="text-white/90 hover:text-white transition-colors inline-flex items-center gap-2 text-lg">
-                            <span>←</span>
-                            <span>Back to Lessons</span>
+            <section className="relative overflow-hidden bg-hero-pattern">
+                <div className="absolute inset-0 bg-hero-mesh opacity-50" />
+
+                <div className="relative container-wide py-16 md:py-20">
+                    {/* Breadcrumb */}
+                    <nav className="mb-6">
+                        <Link
+                            href={`/courses/${courseId}/lessons`}
+                            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm font-medium"
+                        >
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                            Back to Lessons
                         </Link>
-                    </div>
-                    <div className="flex items-center gap-4 mb-4">
-                        <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                            <span className="text-3xl font-bold">{lesson.id}</span>
+                    </nav>
+
+                    <div className="flex items-start gap-5">
+                        {/* Lesson Number Badge */}
+                        <div className="hidden sm:flex flex-shrink-0 w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl items-center justify-center">
+                            <span className="text-2xl font-bold text-white">{lesson.id}</span>
                         </div>
+
                         <div>
-                            <p className="text-white/80 text-sm uppercase tracking-wide mb-1">Lesson {lesson.id}</p>
-                            <h1 className="text-3xl md:text-4xl font-bold">{lesson.title}</h1>
+                            <div className="flex items-center gap-3 mb-3">
+                                <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-xs font-medium uppercase tracking-wider">
+                                    Lesson {lesson.id}
+                                </span>
+                            </div>
+                            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
+                                {lesson.title}
+                            </h1>
+                            <p className="text-white/80 text-lg leading-relaxed max-w-3xl">
+                                {lesson.introduction}
+                            </p>
                         </div>
                     </div>
-                    <p className="text-lg md:text-xl opacity-90 leading-relaxed">{lesson.introduction}</p>
                 </div>
+
+                {/* Bottom gradient fade */}
+                <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent" />
             </section>
 
             {/* Lesson Content */}
-            <section className="py-16">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <section className="py-12 md:py-16">
+                <div className="container-narrow">
                     <article className="space-y-16">
                         {lesson.sections.map((section: any, index: number) => (
-                            <div key={index} className="scroll-mt-8">
-                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{section.title}</h2>
+                            <div key={index} className="scroll-mt-header">
+                                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                                    {section.title}
+                                </h2>
+
                                 {section.content && (
-                                    <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">{section.content}</p>
+                                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                                        {section.content}
+                                    </p>
                                 )}
 
                                 {section.note && (
-                                    <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg mb-8">
-                                        <p className="text-base md:text-lg text-gray-800">
-                                            <strong className="font-semibold text-gray-900">Key Point:</strong> {section.note}
-                                        </p>
+                                    <div className="info-box info-box-blue mb-8">
+                                        <div className="flex items-start gap-3">
+                                            <svg className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            <p className="text-gray-700">
+                                                <span className="font-semibold text-gray-900">Key Point:</span> {section.note}
+                                            </p>
+                                        </div>
                                     </div>
                                 )}
 
                                 {section.steps && (
-                                    <div className="space-y-10">
+                                    <div className="space-y-6">
                                         {section.steps.map((step: any, stepIndex: number) => (
-                                            <div key={stepIndex} className="bg-gray-50 rounded-xl p-8">
-                                                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{step.title}</h3>
-                                                <p className="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">{step.content}</p>
-                                                {step.code && (
-                                                    <div className="bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto shadow-lg">
-                                                        <pre className="text-sm md:text-base leading-relaxed"><code>{step.code}</code></pre>
+                                            <div key={stepIndex} className="card p-4 md:p-6 lg:p-8 overflow-hidden">
+                                                <div className="flex items-start gap-3 md:gap-4">
+                                                    <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm">
+                                                        {stepIndex + 1}
                                                     </div>
-                                                )}
+                                                    <div className="flex-grow min-w-0">
+                                                        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
+                                                            {step.title}
+                                                        </h3>
+                                                        <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
+                                                            {step.content}
+                                                        </p>
+                                                        {step.code && (
+                                                            <div className="code-block -mx-4 md:mx-0 rounded-none md:rounded-lg">
+                                                                <div className="flex items-center justify-between px-3 md:px-4 py-2 border-b border-gray-700/50">
+                                                                    <span className="text-xs text-gray-400 font-medium">{step.codeLanguage || 'HTML'}</span>
+                                                                    <div className="flex gap-1.5">
+                                                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500/80" />
+                                                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500/80" />
+                                                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500/80" />
+                                                                    </div>
+                                                                </div>
+                                                                <pre className="p-3 md:p-5 overflow-x-auto custom-scrollbar">
+                                                                    <code className="text-xs md:text-sm leading-relaxed">{step.code}</code>
+                                                                </pre>
+                                                            </div>
+                                                        )}
+                                                        {step.link && (
+                                                            <a
+                                                                href={step.link}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium mt-2 group"
+                                                            >
+                                                                <span>Visit {new URL(step.link).hostname}</span>
+                                                                <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                                </svg>
+                                                            </a>
+                                                        )}
+                                                        {step.image && (
+                                                            <div className="mt-4 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                                                                <img
+                                                                    src={step.image}
+                                                                    alt="CodePen interface"
+                                                                    className="w-full h-auto"
+                                                                />
+                                                            </div>
+                                                        )}
+                                                        {step.preview && (
+                                                            <CodePreview type={step.preview.type} caption={step.preview.caption} />
+                                                        )}
+                                                    </div>
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
@@ -175,9 +483,14 @@ export default function LessonPage({
                                 {section.list && (
                                     <div className="space-y-3">
                                         {section.list.map((item: string, itemIndex: number) => (
-                                            <div key={itemIndex} className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
-                                                <span className="text-yss-primary text-xl flex-shrink-0">•</span>
-                                                <span className="text-base md:text-lg text-gray-800" dangerouslySetInnerHTML={{ __html: item }} />
+                                            <div key={itemIndex} className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
+                                                <div className="flex-shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
+                                                    <div className="w-2 h-2 bg-blue-600 rounded-full" />
+                                                </div>
+                                                <span
+                                                    className="text-gray-700 leading-relaxed [&_code]:bg-gray-200 [&_code]:px-2 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_code]:font-mono"
+                                                    dangerouslySetInnerHTML={{ __html: item }}
+                                                />
                                             </div>
                                         ))}
                                     </div>
@@ -187,43 +500,94 @@ export default function LessonPage({
 
                         {/* Exercise Section */}
                         {lesson.exercise && (
-                            <div className="border-t-2 border-gray-200 pt-16">
-                                <div className="bg-gradient-to-br from-orange-50 to-orange-100 border-2 border-orange-400 p-8 rounded-xl mb-8 shadow-md">
+                            <div className="pt-8 border-t border-gray-200">
+                                <div className="info-box info-box-orange p-8 mb-8">
                                     <div className="flex items-center gap-3 mb-6">
-                                        <span className="text-4xl">🎯</span>
-                                        <h3 className="text-3xl font-bold text-orange-900">{lesson.exercise.title}</h3>
+                                        <div className="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center">
+                                            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                            </svg>
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-gray-900">{lesson.exercise.title}</h3>
                                     </div>
-                                    <p className="text-lg text-gray-800 mb-6">{lesson.exercise.description}</p>
+
+                                    <p className="text-lg text-gray-700 mb-6">{lesson.exercise.description}</p>
+
                                     <ul className="space-y-3 mb-6">
                                         {lesson.exercise.tasks.map((task: string, index: number) => (
-                                            <li key={index} className="flex items-start gap-3">
-                                                <span className="text-orange-600 text-xl flex-shrink-0">✓</span>
-                                                <span className="text-base md:text-lg text-gray-800">{task}</span>
+                                            <li key={index} className="flex items-center gap-3">
+                                                <div className="flex-shrink-0 w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center">
+                                                    <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                </div>
+                                                <span className="text-gray-700 font-medium">{task}</span>
                                             </li>
                                         ))}
                                     </ul>
-                                    <p className="text-sm text-gray-600 italic bg-white/50 p-4 rounded-lg">{lesson.exercise.hint}</p>
+
+                                    <div className="bg-white/60 rounded-lg p-4">
+                                        <p className="text-gray-600 text-sm flex items-center gap-2">
+                                            <svg className="w-4 h-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                            </svg>
+                                            {lesson.exercise.hint}
+                                        </p>
+                                    </div>
                                 </div>
 
                                 <button
                                     onClick={() => setShowSolution(!showSolution)}
-                                    className="bg-yss-primary text-white font-bold px-8 py-4 rounded-lg hover:bg-yss-primary-dark transition-all transform hover:scale-105 shadow-md text-lg mb-6"
+                                    className="btn-outline mb-6"
                                 >
-                                    {showSolution ? 'Hide Solution ↑' : 'Show Solution ↓'}
+                                    {showSolution ? (
+                                        <>
+                                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                                            </svg>
+                                            Hide Solution
+                                        </>
+                                    ) : (
+                                        <>
+                                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                            Show Solution
+                                        </>
+                                    )}
                                 </button>
 
                                 {showSolution && (
-                                    <div className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-500 p-8 rounded-xl shadow-md animate-fadeIn">
+                                    <div className="info-box info-box-green p-8 animate-fade-in">
                                         <div className="flex items-center gap-3 mb-6">
-                                            <span className="text-4xl">✅</span>
-                                            <h4 className="text-2xl font-bold text-green-900">Example Solution</h4>
+                                            <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center">
+                                                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                            </div>
+                                            <h4 className="text-2xl font-bold text-gray-900">Example Solution</h4>
                                         </div>
-                                        <div className="bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto shadow-lg mb-6">
-                                            <pre className="text-sm md:text-base leading-relaxed"><code>{lesson.exercise.solution}</code></pre>
+
+                                        <div className="code-block mb-6">
+                                            <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700/50">
+                                                <span className="text-xs text-gray-400 font-medium">Complete Code</span>
+                                                <div className="flex gap-1.5">
+                                                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                                                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                                                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                                                </div>
+                                            </div>
+                                            <pre className="p-5 overflow-x-auto custom-scrollbar">
+                                                <code className="text-sm leading-relaxed">{lesson.exercise.solution}</code>
+                                            </pre>
                                         </div>
-                                        <div className="bg-green-200/50 p-6 rounded-lg">
-                                            <p className="text-base text-gray-800">
-                                                <strong className="font-semibold text-gray-900">💡 Tip:</strong> {lesson.exercise.solutionNote}
+
+                                        <div className="bg-white/60 rounded-lg p-4">
+                                            <p className="text-gray-700 flex items-start gap-2">
+                                                <svg className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                                </svg>
+                                                <span><strong>Tip:</strong> {lesson.exercise.solutionNote}</span>
                                             </p>
                                         </div>
                                     </div>
@@ -232,36 +596,135 @@ export default function LessonPage({
                         )}
 
                         {/* Summary */}
-                        <div className="bg-gray-50 rounded-xl p-8 border-t-2 border-gray-200">
-                            <div className="flex items-center gap-3 mb-6">
-                                <span className="text-4xl">🎉</span>
-                                <h2 className="text-3xl font-bold text-gray-900">Congratulations!</h2>
+                        <div className="card p-8 bg-gradient-to-br from-gray-50 to-gray-100/50">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center">
+                                    <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">Lesson Complete</p>
+                                    <h2 className="text-2xl font-bold text-gray-900">Congratulations!</h2>
+                                </div>
                             </div>
-                            <p className="text-lg md:text-xl text-gray-700 mb-6">
-                                You've completed this lesson! Here's what you learned:
+
+                            <p className="text-lg text-gray-600 mb-6">
+                                You've completed this lesson. Here's what you learned:
                             </p>
-                            <div className="space-y-4">
+
+                            <div className="space-y-3">
                                 {lesson.summary.map((item: string, index: number) => (
-                                    <div key={index} className="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm">
-                                        <div className="flex-shrink-0 w-8 h-8 bg-yss-primary rounded-full flex items-center justify-center">
-                                            <span className="text-white font-bold text-sm">✓</span>
+                                    <div key={index} className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm">
+                                        <div className="flex-shrink-0 w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center mt-0.5">
+                                            <svg className="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                            </svg>
                                         </div>
-                                        <span className="text-base md:text-lg text-gray-800 pt-1">{item}</span>
+                                        <span
+                                            className="text-gray-700 font-medium [&_strong]:text-gray-900"
+                                            dangerouslySetInnerHTML={{ __html: item }}
+                                        />
                                     </div>
                                 ))}
                             </div>
                         </div>
 
+                        {/* Next Steps */}
+                        {lesson.nextSteps && (
+                            <div className="card p-8 bg-gradient-to-br from-blue-50 to-indigo-50/50 border-blue-200">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center">
+                                        <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p className="text-sm text-blue-600 font-medium uppercase tracking-wider">Continue Learning</p>
+                                        <h2 className="text-2xl font-bold text-gray-900">{lesson.nextSteps.title}</h2>
+                                    </div>
+                                </div>
+
+                                <p className="text-lg text-gray-600 mb-6">
+                                    {lesson.nextSteps.description}
+                                </p>
+
+                                <div className="space-y-3">
+                                    {lesson.nextSteps.resources.map((resource: any, index: number) => (
+                                        <a
+                                            key={index}
+                                            href={resource.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow group"
+                                        >
+                                            <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                                                <svg className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </div>
+                                            <div className="flex-grow">
+                                                <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{resource.name}</h3>
+                                                <p className="text-sm text-gray-500">{resource.description}</p>
+                                            </div>
+                                            <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Additional Resources */}
+                        {lesson.additionalResources && lesson.additionalResources.length > 0 && (
+                            <div className="card p-8">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center">
+                                        <svg className="w-7 h-7 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">Learn More</p>
+                                        <h2 className="text-2xl font-bold text-gray-900">Additional Resources</h2>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {lesson.additionalResources.map((resource: any, index: number) => (
+                                        <a
+                                            key={index}
+                                            href={resource.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors group"
+                                        >
+                                            <div className="flex-shrink-0 w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-sm">
+                                                <svg className="w-4 h-4 text-gray-500 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </div>
+                                            <span className="text-gray-700 font-medium group-hover:text-blue-600 transition-colors">{resource.topic}</span>
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
                         {/* Navigation */}
-                        <div className="flex justify-between items-center pt-8 border-t-2 border-gray-200">
+                        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-gray-200">
                             <Link
-                                href={`/courses/${params.courseId}/lessons`}
-                                className="inline-flex items-center gap-2 border-2 border-yss-primary text-yss-primary font-bold px-8 py-4 rounded-lg hover:bg-yss-primary hover:text-white transition-all"
+                                href={`/courses/${courseId}/lessons`}
+                                className="btn-outline w-full sm:w-auto"
                             >
-                                <span>←</span>
-                                <span>Back to Lessons</span>
+                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                                Back to Lessons
                             </Link>
-                            <div className="text-gray-400 font-medium px-8 py-4">
+
+                            <div className="px-6 py-3 bg-gray-100 rounded-xl text-gray-500 font-medium">
                                 End of Course
                             </div>
                         </div>
