@@ -14,180 +14,195 @@ const lessonContent: Record<string, Record<string, any>> = {
             introduction: 'Welcome to your first web development lesson! The goal is to get you coding immediately using three fundamental technologies that power the entire web: HTML for structure and content, CSS for style and appearance, and JavaScript for interactivity. You\'ll use CodePen to write and see your code results instantly—no setup required!',
             sections: [
                 {
-                    title: 'Pre-Requisites',
-                    content: 'Before you begin, please complete the following setup steps:',
+                    title: 'Getting Started',
+                    content: 'First, let\'s set up your coding environment. CodePen is a free online code editor where you can write HTML, CSS, and JavaScript and see the results instantly.',
                     steps: [
                         {
                             title: 'Create a Free CodePen Account',
-                            content: 'Go to CodePen and sign up for a free account. This allows you to save your projects (called "Pens") and share them for review.',
+                            content: 'Go to CodePen and sign up for a free account. This allows you to save your projects (called "Pens") and share them.',
                             link: 'https://codepen.io/',
                         },
                         {
                             title: 'Start a New Pen',
-                            content: 'Once signed in, click the "Create" menu in the top navigation and select "New Pen." This will open the three coding panels you need: HTML, CSS, and JS.',
+                            content: 'Once signed in, click "Create" in the top navigation and select "New Pen." You\'ll see three panels at the top: HTML (left), CSS (middle), and JS (right). The bottom shows your live preview.',
                         },
                     ],
                 },
                 {
-                    title: 'Task 1: The "Hello World" Foundation (HTML)',
-                    content: 'Create the main title of your page.',
+                    title: 'Step 1: Build the Page Structure (HTML)',
+                    content: 'HTML defines what content appears on your page. Let\'s add all the elements we need.',
                     steps: [
                         {
-                            title: 'Navigate to the HTML Panel',
-                            content: 'Find the HTML panel in CodePen and type the following code:',
-                            code: `<h1>Hello World</h1>`,
-                            codeLanguage: 'HTML',
-                        },
-                        {
-                            title: 'Check Your Result',
-                            content: 'Look at the bottom half of the screen (the "Result" area). You should immediately see large text appear.',
-                        },
-                    ],
-                },
-                {
-                    title: 'Task 2: Adding the Message and Input (HTML)',
-                    content: 'Add the interactive parts—the text box for the name and the greeting message.',
-                    steps: [
-                        {
-                            title: 'Add Interactive Elements',
-                            content: 'In the HTML Panel, add the following code below the <h1> tag:',
-                            code: `<input type="text" id="name-input" placeholder="Enter your name here">
+                            title: 'Add the HTML Code',
+                            content: 'Click in the HTML panel (top-left) and type the following code exactly as shown:',
+                            code: `<h1>Hello World</h1>
+
+<input type="text" id="name-input" placeholder="Enter your name">
 <button onclick="greetUser()">Say Hello</button>
 
-<p id="greeting-message">Hello Awais, nice to meet you.</p>`,
+<p id="greeting-message"></p>`,
                             codeLanguage: 'HTML',
-                        },
-                    ],
-                    note: 'We used the "id" attribute to give elements unique identifiers so our JavaScript can find them later. The button has an "onclick" action to run a JS function called greetUser().',
-                },
-                {
-                    title: 'Task 3: Hiding the Message (CSS)',
-                    content: 'Make the greeting message invisible until the button is clicked.',
-                    steps: [
-                        {
-                            title: 'Navigate to the CSS Panel',
-                            content: 'Type the following code. This targets the element with the ID "greeting-message" and sets its display property to none:',
-                            code: `#greeting-message {
-  display: none; /* This makes the message invisible by default */
-}`,
-                            codeLanguage: 'CSS',
                         },
                         {
                             title: 'Check Your Result',
-                            content: 'The text "Hello Awais, nice to meet you" should disappear from the results screen.',
+                            content: 'Look at the preview area at the bottom. You should see: a large "Hello World" heading, a text box with placeholder text, and a "Say Hello" button. The paragraph is empty and invisible for now.',
                         },
                     ],
+                    note: 'The "id" attributes (name-input and greeting-message) give elements unique names so JavaScript can find and modify them. The button\'s "onclick" tells it which function to run when clicked.',
                 },
                 {
-                    title: 'Task 4: Implementing the Interactive Logic (JavaScript)',
-                    content: 'Write the code that runs when the button is clicked to show the message and update the name.',
+                    title: 'Step 2: Add the Interactive Logic (JavaScript)',
+                    content: 'JavaScript makes your page interactive. Let\'s write a function that responds when the button is clicked.',
                     steps: [
                         {
-                            title: 'Navigate to the JS Panel',
-                            content: 'Define the greetUser() function that the button is looking for:',
+                            title: 'Add the JavaScript Code',
+                            content: 'Click in the JS panel (top-right) and type the following code:',
                             code: `function greetUser() {
-  // 1. Get the name the user typed in the box
-  const userName = document.getElementById('name-input').value;
+  // Get what the user typed
+  var name = document.getElementById("name-input").value;
 
-  // 2. Find the message element
-  const messageElement = document.getElementById('greeting-message');
+  // Create the greeting message
+  var message = "Hello " + name + ", nice to meet you!";
 
-  // 3. Update the message content with the new name
-  messageElement.innerHTML = "Hello " + userName + ", nice to meet you!";
-
-  // 4. Make the message visible
-  messageElement.style.display = 'block';
+  // Display the message on the page
+  document.getElementById("greeting-message").innerHTML = message;
 }`,
                             codeLanguage: 'JavaScript',
                         },
                         {
-                            title: 'Test Your Code',
-                            content: 'Type your name into the text box and click the "Say Hello" button. The greeting message should appear, customized with your name!',
+                            title: 'Test It!',
+                            content: 'Type your name in the text box and click "Say Hello". Your personalized greeting should appear below the button! Try different names to see it change.',
                         },
                     ],
+                    note: 'document.getElementById() finds an element by its id. The .value property gets what\'s typed in an input box. The .innerHTML property lets us change what text appears inside an element.',
                 },
                 {
-                    title: 'Task 5: Setting the Page Title (HTML Settings)',
-                    content: 'Set the text that appears in the browser tab.',
+                    title: 'Step 3: Style Your Page (CSS)',
+                    content: 'CSS controls how your page looks. Let\'s make it more visually appealing.',
                     steps: [
                         {
-                            title: 'Open CodePen Settings',
-                            content: 'Look for the "Settings" button (usually at the top right of the CodePen editor). Click "Settings" and go to the "HTML" tab.',
-                        },
-                        {
-                            title: 'Add the Title',
-                            content: 'In the box labeled "Stuff for <head>", type the following:',
-                            code: `<title>My First Interactive Page</title>`,
-                            codeLanguage: 'HTML',
-                        },
-                        {
-                            title: 'Save Your Pen',
-                            content: 'Save your Pen and observe the title of the Pen or your browser tab update.',
-                        },
-                    ],
-                },
-                {
-                    title: 'Task 6: Adding Basic Style (CSS)',
-                    content: 'Change the page background and text color to customize the look.',
-                    steps: [
-                        {
-                            title: 'Add Styling',
-                            content: 'Return to the CSS Panel and add the following code above or below your existing CSS rule:',
+                            title: 'Add the CSS Code',
+                            content: 'Click in the CSS panel (top-middle) and type the following code:',
                             code: `body {
-  background-color: #282c34; /* Dark gray background */
-  color: #61dafb; /* Light blue text color */
-  text-align: center; /* Center all content */
+  background-color: #282c34;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
   padding-top: 50px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #61dafb;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4fa8c7;
+}
+
+#greeting-message {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #61dafb;
 }`,
                             codeLanguage: 'CSS',
                         },
                         {
-                            title: 'Check Your Result',
-                            content: 'The entire background should change to a dark color, and your text should be light blue and centered.',
+                            title: 'See the Transformation',
+                            content: 'Your page should now have a dark background, styled input and button, and your greeting message will appear in light blue. Try clicking the button again!',
+                        },
+                    ],
+                    note: 'CSS uses selectors to target elements: "body" targets the whole page, "input" and "button" target those elements, and "#greeting-message" targets the element with that specific id. The hover style makes the button change when you move your mouse over it.',
+                },
+                {
+                    title: 'Step 4: Save Your Work',
+                    content: 'Don\'t lose your creation! Save it to your CodePen account.',
+                    steps: [
+                        {
+                            title: 'Save Your Pen',
+                            content: 'Click the "Save" button in the top-right corner of CodePen. Your Pen will be saved to your account and you\'ll get a unique URL you can share.',
+                        },
+                        {
+                            title: 'Give It a Title',
+                            content: 'Click on "Untitled" at the top of the page and rename your Pen to something like "My Greeting Card" so you can find it later.',
                         },
                     ],
                 },
             ],
             exercise: {
-                title: 'Practice Exercise',
-                description: 'Try modifying your greeting card with these challenges:',
+                title: 'Practice Challenges',
+                description: 'Now that your greeting card works, try these modifications to learn more:',
                 tasks: [
-                    'Change the greeting message to say something different',
-                    'Try different background and text colors in the CSS',
-                    'Add another heading or paragraph to your page',
+                    'Change the greeting to say "Welcome" instead of "Hello"',
+                    'Change the background color to navy blue (#001f3f) or another color you like',
+                    'Add a second button that says "Clear" and clears the greeting message',
+                    'Make the greeting message appear in a different color like green or orange',
                 ],
-                hint: 'Experiment freely! You can always undo changes or start a new Pen.',
-                solution: `<!-- HTML -->
+                hint: 'Don\'t be afraid to experiment! If something breaks, you can always undo with Ctrl+Z (or Cmd+Z on Mac).',
+                solution: `=== HTML Panel ===
 <h1>Hello World</h1>
-<input type="text" id="name-input" placeholder="Enter your name here">
+
+<input type="text" id="name-input" placeholder="Enter your name">
 <button onclick="greetUser()">Say Hello</button>
-<p id="greeting-message">Hello Friend, nice to meet you!</p>
 
-<!-- CSS -->
-#greeting-message {
-  display: none;
-}
+<p id="greeting-message"></p>
 
+
+=== CSS Panel ===
 body {
   background-color: #282c34;
-  color: #61dafb;
+  color: white;
+  font-family: Arial, sans-serif;
   text-align: center;
   padding-top: 50px;
 }
 
-<!-- JavaScript -->
+input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #61dafb;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4fa8c7;
+}
+
+#greeting-message {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #61dafb;
+}
+
+
+=== JS Panel ===
 function greetUser() {
-  const userName = document.getElementById('name-input').value;
-  const messageElement = document.getElementById('greeting-message');
-  messageElement.innerHTML = "Hello " + userName + ", nice to meet you!";
-  messageElement.style.display = 'block';
+  var name = document.getElementById("name-input").value;
+  var message = "Hello " + name + ", nice to meet you!";
+  document.getElementById("greeting-message").innerHTML = message;
 }`,
-                solutionNote: 'This is the complete code for all three panels. Feel free to customize it further!',
+                solutionNote: 'Copy each section into the corresponding panel in CodePen. The code is separated by panel for clarity.',
             },
             summary: [
-                '<strong>HTML:</strong> You learned how to define titles, paragraphs, buttons, and input fields using tags and unique ID attributes',
-                '<strong>CSS:</strong> You learned how to target an element using its ID (#greeting-message) and control its appearance and visibility (display: none)',
-                '<strong>JavaScript:</strong> You wrote your first function (greetUser()) which can read user input (.value) and dynamically change content (.innerHTML) and style (.style.display)',
+                '<strong>HTML</strong> creates the structure: headings (&lt;h1&gt;), text inputs (&lt;input&gt;), buttons (&lt;button&gt;), and paragraphs (&lt;p&gt;). The "id" attribute gives elements unique names.',
+                '<strong>JavaScript</strong> adds interactivity: functions run when events happen (like clicking). getElementById() finds elements, .value reads input, and .innerHTML changes content.',
+                '<strong>CSS</strong> controls appearance: selectors target elements, and properties like background-color, font-size, and padding change how they look.',
             ],
             nextSteps: {
                 title: 'What\'s Next?',
