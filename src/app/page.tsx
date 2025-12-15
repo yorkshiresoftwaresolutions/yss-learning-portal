@@ -62,9 +62,6 @@ export default function Home() {
         <div className="container-wide">
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-3">
-              Why Choose Us
-            </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Learning Made Simple
             </h2>
