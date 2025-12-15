@@ -18,8 +18,8 @@ export default function Home() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight animate-fade-in-up">
-              Learn Web Development
-              <span className="block text-white/90">The Right Way</span>
+              A Gentle Start to
+              <span className="block text-white/90">Web Development</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/85 mb-10 leading-relaxed max-w-2xl animate-fade-in-up animation-delay-100">
@@ -163,7 +163,7 @@ export default function Home() {
               href="/courses/beginners-web-dev"
               className="btn-primary px-10 py-4 text-lg"
             >
-              Get Started Now
+              Begin Learning
             </Link>
             <p className="text-gray-500 text-sm mt-4">
               No signup required &middot; Start learning immediately
@@ -172,23 +172,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats/Trust Section */}
+      {/* Info Section */}
       <section className="py-16 bg-gray-900 text-white">
         <div className="container-wide">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="p-6">
-              <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">100%</div>
-              <div className="text-gray-400 font-medium">Free to Learn</div>
-            </div>
-            <div className="p-6 border-y md:border-y-0 md:border-x border-gray-800">
-              <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">Beginner</div>
-              <div className="text-gray-400 font-medium">Friendly Content</div>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">Practical</div>
-              <div className="text-gray-400 font-medium">Hands-On Exercises</div>
-            </div>
-          </div>
+          <p className="text-xl md:text-2xl text-center text-gray-300 max-w-2xl mx-auto">
+            Everything here is free, beginner-friendly, and hands-on.
+          </p>
         </div>
       </section>
 
@@ -196,10 +185,10 @@ export default function Home() {
       <section className="section bg-gradient-subtle">
         <div className="container-narrow text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Ready to Start Your Journey?
+            Explore at Your Own Pace
           </h2>
           <p className="text-lg text-gray-600 mb-10 max-w-xl mx-auto">
-            Join our free learning portal and take your first steps into web development today.
+            Dive in whenever you're ready and learn at a pace that works for you.
           </p>
           <Link
             href="/courses/beginners-web-dev/lessons"
