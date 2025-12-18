@@ -21,6 +21,8 @@ const coursesData: Record<string, any> = {
         ],
         lessons: [
             { id: '1', title: 'Your First Program (Interactive Greeting Card)', duration: '1-2 hours' },
+            { id: '2', title: 'Building a Profile Card', duration: '1-2 hours' },
+            { id: '3', title: 'Coming Soon', duration: '', comingSoon: true },
         ],
     },
 };
@@ -144,22 +146,39 @@ export default async function CoursePage({
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Course Content</h2>
                         <div className="card p-0 overflow-hidden">
                             {course.lessons.map((lesson: any, index: number) => (
-                                <Link
-                                    key={lesson.id}
-                                    href={`/courses/${courseId}/lessons/${lesson.id}`}
-                                    className="flex items-center gap-4 p-5 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0 group"
-                                >
-                                    <div className="flex-shrink-0 w-10 h-10 bg-gray-100 group-hover:bg-blue-600 rounded-xl flex items-center justify-center transition-colors">
-                                        <span className="text-gray-600 group-hover:text-white font-semibold transition-colors">{index + 1}</span>
+                                lesson.comingSoon ? (
+                                    <div
+                                        key={lesson.id}
+                                        className="flex items-center gap-4 p-5 border-b border-gray-100 last:border-b-0 bg-gray-50"
+                                    >
+                                        <div className="flex-shrink-0 w-10 h-10 bg-gray-200 rounded-xl flex items-center justify-center">
+                                            <span className="text-gray-400 font-semibold">{index + 1}</span>
+                                        </div>
+                                        <div className="flex-grow">
+                                            <h3 className="font-semibold text-gray-400">Lesson {lesson.id}: {lesson.title}</h3>
+                                        </div>
+                                        <span className="px-3 py-1 bg-gray-200 text-gray-500 text-xs font-medium rounded-full">
+                                            Coming Soon
+                                        </span>
                                     </div>
-                                    <div className="flex-grow">
-                                        <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{lesson.title}</h3>
-                                        <p className="text-sm text-gray-500">{lesson.duration}</p>
-                                    </div>
-                                    <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </Link>
+                                ) : (
+                                    <Link
+                                        key={lesson.id}
+                                        href={`/courses/${courseId}/lessons/${lesson.id}`}
+                                        className="flex items-center gap-4 p-5 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0 group"
+                                    >
+                                        <div className="flex-shrink-0 w-10 h-10 bg-gray-100 group-hover:bg-blue-600 rounded-xl flex items-center justify-center transition-colors">
+                                            <span className="text-gray-600 group-hover:text-white font-semibold transition-colors">{index + 1}</span>
+                                        </div>
+                                        <div className="flex-grow">
+                                            <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{lesson.title}</h3>
+                                            <p className="text-sm text-gray-500">{lesson.duration}</p>
+                                        </div>
+                                        <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </Link>
+                                )
                             ))}
                         </div>
                     </div>
