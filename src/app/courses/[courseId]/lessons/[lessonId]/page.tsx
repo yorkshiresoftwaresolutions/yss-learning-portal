@@ -761,7 +761,7 @@ function CodePreview({ type, caption }: { type: string; caption: string }) {
                     <p style={{ color: 'black', margin: '0 0 4px', fontWeight: '500' }}>Web Developer in Training</p>
                     <p style={{ color: '#666', margin: '0 0 12px', fontSize: '0.9em' }}>I'm learning to build websites!</p>
                     <h3 style={{ fontSize: '1.1em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>My Skills</h3>
-                    <ul style={{ textAlign: 'left', color: 'black', paddingLeft: '30px', margin: 0 }}>
+                    <ul style={{ textAlign: 'left', color: 'black', paddingLeft: '30px', margin: 0, listStyleType: 'disc' }}>
                         <li>HTML</li>
                         <li>JavaScript</li>
                         <li>Problem Solving</li>
