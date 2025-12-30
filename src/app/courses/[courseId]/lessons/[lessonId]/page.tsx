@@ -317,9 +317,9 @@ function showGreeting() {
                         {
                             title: 'Add an Image',
                             content: 'Add this code between your <h1> and <p> tags:',
-                            code: `<img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo">`,
+                            code: `<img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" />`,
                             codeLanguage: 'HTML',
-                            tip: 'The <img> tag displays an image. The "src" attribute tells it where to find the image, and "alt" provides a description for screen readers.',
+                            tip: 'Notice the /> at the end instead of a separate closing tag! The <img> tag is "self-closing" — it doesn\'t need a </img>. The "src" attribute tells it where to find the image, and "alt" provides a description for screen readers.',
                         },
                         {
                             title: 'Check Your Result',
@@ -343,7 +343,7 @@ function showGreeting() {
                         {
                             title: 'Add a Style Attribute',
                             content: 'Update your <img> tag to include a style attribute:',
-                            code: `<img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%">`,
+                            code: `<img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%" />`,
                             codeLanguage: 'HTML',
                             tip: 'The style attribute lets you add styling directly to an element. "border-radius: 50%" rounds the corners so much that it becomes a circle!',
                         },
@@ -378,7 +378,7 @@ function showGreeting() {
                             title: 'Your HTML So Far',
                             content: 'Your HTML panel should now look like this:',
                             code: `<h1>Your Name</h1>
-<img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%">
+<img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%" />
 <p>Web Developer in Training</p>
 <p>I'm learning to build websites and having fun doing it! Based in Yorkshire, UK.</p>`,
                             codeLanguage: 'HTML',
@@ -394,7 +394,7 @@ function showGreeting() {
                             content: 'Add a <div> around all your content with some styling:',
                             code: `<div style="width: 300px; padding: 20px; text-align: center">
   <h1>Your Name</h1>
-  <img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%">
+  <img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%" />
   <p>Web Developer in Training</p>
   <p>I'm learning to build websites and having fun doing it! Based in Yorkshire, UK.</p>
 </div>`,
@@ -541,7 +541,7 @@ function showGreeting() {
                 solution: `=== HTML Panel ===
 <div style="width: 300px; padding: 20px; text-align: center; background-color: lightblue; border-radius: 10px">
   <h1>Your Name</h1>
-  <img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%">
+  <img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%" />
   <p>Web Developer in Training</p>
   <p>I'm learning to build websites and having fun doing it! Based in Yorkshire, UK.</p>
 
