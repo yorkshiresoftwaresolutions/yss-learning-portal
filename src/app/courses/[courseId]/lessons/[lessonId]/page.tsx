@@ -317,7 +317,7 @@ function showGreeting() {
                         {
                             title: 'Add an Image',
                             content: 'Add this code between your <h1> and <p> tags:',
-                            code: `<img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" />`,
+                            code: `<img src="https://learn.yorkshiresoftwaresolutions.co.uk/yss-default-avatar.png" alt="Profile photo" />`,
                             codeLanguage: 'HTML',
                             tip: 'Notice the <code>/&gt;</code> at the end! The <code>&lt;img&gt;</code> tag is "self-closing" — it doesn\'t need a separate <code>&lt;/img&gt;</code> closing tag. The forward slash <code>/</code> before the <code>&gt;</code> shows it closes itself.',
                         },
@@ -348,7 +348,7 @@ function showGreeting() {
                         {
                             title: 'Add a Style Attribute',
                             content: 'Update your <img> tag to include a style attribute:',
-                            code: `<img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%" />`,
+                            code: `<img src="https://learn.yorkshiresoftwaresolutions.co.uk/yss-default-avatar.png" alt="Profile photo" style="border-radius: 50%" />`,
                             codeLanguage: 'HTML',
                             tip: 'The style attribute lets you add styling directly to an element. "border-radius: 50%" rounds the corners so much that it becomes a circle!',
                         },
@@ -383,7 +383,7 @@ function showGreeting() {
                             title: 'Your HTML So Far',
                             content: 'Your HTML panel should now look like this:',
                             code: `<h1>Your Name</h1>
-<img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%" />
+<img src="https://learn.yorkshiresoftwaresolutions.co.uk/yss-default-avatar.png" alt="Profile photo" style="border-radius: 50%" />
 <p>Web Developer in Training</p>
 <p>I'm learning to build websites and having fun doing it! Based in Yorkshire, UK.</p>`,
                             codeLanguage: 'HTML',
@@ -399,7 +399,7 @@ function showGreeting() {
                             content: 'Add a <div> around all your content with some styling:',
                             code: `<div style="width: 300px; padding: 20px; text-align: center">
   <h1>Your Name</h1>
-  <img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%" />
+  <img src="https://learn.yorkshiresoftwaresolutions.co.uk/yss-default-avatar.png" alt="Profile photo" style="border-radius: 50%" />
   <p>Web Developer in Training</p>
   <p>I'm learning to build websites and having fun doing it! Based in Yorkshire, UK.</p>
 </div>`,
@@ -546,7 +546,7 @@ function showGreeting() {
                 solution: `=== HTML Panel ===
 <div style="width: 300px; padding: 20px; text-align: center; background-color: lightblue; border-radius: 10px">
   <h1>Your Name</h1>
-  <img src="https://learn.yorkshiresoftwaresolutions.co.uk/placeholder-profile.svg" alt="Profile photo" style="border-radius: 50%" />
+  <img src="https://learn.yorkshiresoftwaresolutions.co.uk/yss-default-avatar.png" alt="Profile photo" style="border-radius: 50%" />
   <p>Web Developer in Training</p>
   <p>I'm learning to build websites and having fun doing it! Based in Yorkshire, UK.</p>
 
@@ -705,12 +705,11 @@ function CodePreview({ type, caption }: { type: string; caption: string }) {
         return (
             <PreviewWrapper>
                 <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>Your Name</h1>
-                <div style={{ width: '150px', height: '150px', backgroundColor: '#e5e7eb', margin: '0 auto 8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <svg width="80" height="80" viewBox="0 0 150 150">
-                        <circle cx="75" cy="55" r="30" fill="#9ca3af"/>
-                        <ellipse cx="75" cy="130" rx="45" ry="35" fill="#9ca3af"/>
-                    </svg>
-                </div>
+                <img
+                    src="/yss-default-avatar.png"
+                    alt="Profile photo"
+                    style={{ width: '150px', height: '150px', margin: '0 auto 8px', display: 'block', objectFit: 'cover' }}
+                />
                 <p style={{ color: 'black', margin: 0 }}>Web Developer in Training</p>
             </PreviewWrapper>
         );
@@ -721,12 +720,11 @@ function CodePreview({ type, caption }: { type: string; caption: string }) {
         return (
             <PreviewWrapper>
                 <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>Your Name</h1>
-                <div style={{ width: '150px', height: '150px', backgroundColor: '#e5e7eb', margin: '0 auto 8px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                    <svg width="80" height="80" viewBox="0 0 150 150">
-                        <circle cx="75" cy="55" r="30" fill="#9ca3af"/>
-                        <ellipse cx="75" cy="130" rx="45" ry="35" fill="#9ca3af"/>
-                    </svg>
-                </div>
+                <img
+                    src="/yss-default-avatar.png"
+                    alt="Profile photo"
+                    style={{ width: '150px', height: '150px', margin: '0 auto 8px', display: 'block', objectFit: 'cover', borderRadius: '50%' }}
+                />
                 <p style={{ color: 'black', margin: 0 }}>Web Developer in Training</p>
             </PreviewWrapper>
         );
@@ -738,12 +736,11 @@ function CodePreview({ type, caption }: { type: string; caption: string }) {
             <PreviewWrapper>
                 <div style={{ width: '300px', padding: '20px', textAlign: 'center', backgroundColor: '#f5f5f5', borderRadius: '10px', margin: '0 auto' }}>
                     <h1 style={{ fontSize: '1.5em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>Your Name</h1>
-                    <div style={{ width: '100px', height: '100px', backgroundColor: '#e5e7eb', margin: '0 auto 8px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                        <svg width="60" height="60" viewBox="0 0 150 150">
-                            <circle cx="75" cy="55" r="30" fill="#9ca3af"/>
-                            <ellipse cx="75" cy="130" rx="45" ry="35" fill="#9ca3af"/>
-                        </svg>
-                    </div>
+                    <img
+                        src="/yss-default-avatar.png"
+                        alt="Profile photo"
+                        style={{ width: '100px', height: '100px', margin: '0 auto 8px', display: 'block', objectFit: 'cover', borderRadius: '50%' }}
+                    />
                     <p style={{ color: 'black', margin: '0 0 4px', fontWeight: '500' }}>Web Developer in Training</p>
                     <p style={{ color: '#666', margin: 0, fontSize: '0.9em' }}>I'm learning to build websites!</p>
                 </div>
@@ -757,12 +754,11 @@ function CodePreview({ type, caption }: { type: string; caption: string }) {
             <PreviewWrapper>
                 <div style={{ width: '300px', padding: '20px', textAlign: 'center', backgroundColor: '#f5f5f5', borderRadius: '10px', margin: '0 auto' }}>
                     <h1 style={{ fontSize: '1.5em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>Your Name</h1>
-                    <div style={{ width: '100px', height: '100px', backgroundColor: '#e5e7eb', margin: '0 auto 8px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                        <svg width="60" height="60" viewBox="0 0 150 150">
-                            <circle cx="75" cy="55" r="30" fill="#9ca3af"/>
-                            <ellipse cx="75" cy="130" rx="45" ry="35" fill="#9ca3af"/>
-                        </svg>
-                    </div>
+                    <img
+                        src="/yss-default-avatar.png"
+                        alt="Profile photo"
+                        style={{ width: '100px', height: '100px', margin: '0 auto 8px', display: 'block', objectFit: 'cover', borderRadius: '50%' }}
+                    />
                     <p style={{ color: 'black', margin: '0 0 4px', fontWeight: '500' }}>Web Developer in Training</p>
                     <p style={{ color: '#666', margin: '0 0 12px', fontSize: '0.9em' }}>I'm learning to build websites!</p>
                     <h3 style={{ fontSize: '1.1em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>My Skills</h3>
