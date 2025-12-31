@@ -409,12 +409,8 @@ function showGreeting() {
                         {
                             title: 'Understanding the Styles',
                             content: 'Let\'s break down what each style property does:',
+                            tip: '<code>width: 300px</code> — Sets the card to be 300 pixels wide<br/><br/><code>padding: 20px</code> — Adds 20 pixels of space inside the edges (like a picture frame)<br/><br/><code>text-align: center</code> — Centres all the text and images inside',
                         },
-                    ],
-                    list: [
-                        '<code>width: 300px</code> — Sets the card to be 300 pixels wide',
-                        '<code>padding: 20px</code> — Adds 20 pixels of space inside the edges (like a picture frame)',
-                        '<code>text-align: center</code> — Centres all the text and images inside',
                     ],
                     learnMore: {
                         content: 'The <div> element is one of the most used HTML tags. It doesn\'t represent anything specific — it\'s just a generic container for grouping content. Think of it like an invisible box that you can style however you want.',
@@ -512,15 +508,8 @@ function showGreeting() {
                         {
                             title: 'Understanding the Button Styles',
                             content: 'Here\'s what each style property does:',
+                            tip: '<code>display: inline-block</code> — Lets us add padding to the link properly<br/><br/><code>padding: 10px 20px</code> — Adds space inside (10px top/bottom, 20px left/right)<br/><br/><code>background-color: #c62828</code> — A nice red background colour<br/><br/><code>color: white</code> — Makes the text white<br/><br/><code>text-decoration: none</code> — Removes the underline<br/><br/><code>border-radius: 5px</code> — Rounds the corners slightly',
                         },
-                    ],
-                    list: [
-                        '<code>display: inline-block</code> — Lets us add padding to the link properly',
-                        '<code>padding: 10px 20px</code> — Adds space inside (10px top/bottom, 20px left/right)',
-                        '<code>background-color: #c62828</code> — A nice red background colour',
-                        '<code>color: white</code> — Makes the text white',
-                        '<code>text-decoration: none</code> — Removes the underline',
-                        '<code>border-radius: 5px</code> — Rounds the corners slightly',
                     ],
                 },
                 {
