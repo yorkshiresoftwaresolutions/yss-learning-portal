@@ -40,7 +40,7 @@ const lessonContent: Record<string, Record<string, any>> = {
                             content: 'Click in the HTML panel (top-left) and type the following code:',
                             code: `<h1>Hello World</h1>`,
                             codeLanguage: 'HTML',
-                            tip: 'The <h1> tag creates a "heading level 1" — the biggest heading. The text goes between the opening <h1> and closing </h1> tags.',
+                            tip: 'The <code>&lt;h1&gt;</code> tag creates a "heading level 1" — the biggest heading. The text goes between the opening <code>&lt;h1&gt;</code> and closing <code>&lt;/h1&gt;</code> tags.',
                         },
                         {
                             title: 'Check Your Result',
@@ -67,7 +67,7 @@ const lessonContent: Record<string, Record<string, any>> = {
                             content: 'Add this code below your <h1> tag:',
                             code: `<p>Hello friend, nice to meet you!</p>`,
                             codeLanguage: 'HTML',
-                            tip: 'The <p> tag creates a paragraph. Your HTML panel should now have two lines: the <h1> on top and the <p> below it.',
+                            tip: 'The <code>&lt;p&gt;</code> tag creates a paragraph. Your HTML panel should now have two lines: the <code>&lt;h1&gt;</code> on top and the <code>&lt;p&gt;</code> below it.',
                         },
                         {
                             title: 'Check Your Result',
@@ -143,7 +143,7 @@ const lessonContent: Record<string, Record<string, any>> = {
                             content: 'Add this input box after your <h1> tag and before the button:',
                             code: `<input type="text" id="nameInput" placeholder="Enter your name">`,
                             codeLanguage: 'HTML',
-                            tip: 'The <input> tag creates a text box. The placeholder text shows what to type but disappears when you start typing. We gave it an id so JavaScript can read what the user types.',
+                            tip: 'The <code>&lt;input&gt;</code> tag creates a text box. The placeholder text shows what to type but disappears when you start typing. We gave it an id so JavaScript can read what the user types.',
                         },
                         {
                             title: 'Update the Button',
@@ -298,7 +298,7 @@ function showGreeting() {
                             code: `<h1>Your Name</h1>
 <p>Web Developer in Training</p>`,
                             codeLanguage: 'HTML',
-                            tip: 'These are the same tags you learned in Lesson 1! The <h1> is for your name, and <p> is for your title.',
+                            tip: 'These are the same tags you learned in Lesson 1! The <code>&lt;h1&gt;</code> is for your name, and <code>&lt;p&gt;</code> is for your title.',
                         },
                         {
                             title: 'Check Your Result',
@@ -404,7 +404,7 @@ function showGreeting() {
   <p>I'm learning to build websites and having fun doing it! Based in Yorkshire, UK.</p>
 </div>`,
                             codeLanguage: 'HTML',
-                            tip: 'The <div> tag is a container — it groups elements together. On its own it\'s invisible, but we can style it to create a card effect.',
+                            tip: 'The <code>&lt;div&gt;</code> tag is a container — it groups elements together. On its own it\'s invisible, but we can style it to create a card effect.',
                         },
                         {
                             title: 'Understanding the Styles',
@@ -458,7 +458,7 @@ function showGreeting() {
   <li>Problem Solving</li>
 </ul>`,
                             codeLanguage: 'HTML',
-                            tip: 'The <ul> tag creates an "unordered list" (bullet points). Each <li> is a "list item". Add as many skills as you like!',
+                            tip: 'The <code>&lt;ul&gt;</code> tag creates an "unordered list" (bullet points). Each <code>&lt;li&gt;</code> is a "list item". Add as many skills as you like!',
                         },
                         {
                             title: 'Check Your Result',
@@ -484,7 +484,7 @@ function showGreeting() {
                             content: 'Add this code after your skills list:',
                             code: `<a href="https://learn.yorkshiresoftwaresolutions.co.uk/courses/beginners-web-dev/lessons/2">View Building Instructions</a>`,
                             codeLanguage: 'HTML',
-                            tip: 'The <a> tag creates a clickable link. The "href" attribute tells it where to go when clicked.',
+                            tip: 'The <code>&lt;a&gt;</code> tag creates a clickable link. The "href" attribute tells it where to go when clicked.',
                         },
                         {
                             title: 'Test Your Link',
