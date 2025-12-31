@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-// Single course with single lesson
+// Single course with lessons
 const coursesData: Record<string, any> = {
     'beginners-web-dev': {
         id: 'beginners-web-dev',
@@ -12,6 +12,19 @@ const coursesData: Record<string, any> = {
                 title: 'Your First Program (Interactive Greeting Card)',
                 duration: '1-2 hours',
                 description: 'Build an interactive greeting card using HTML, CSS, and JavaScript. You\'ll use CodePen to write code and see results instantly—no setup required!'
+            },
+            {
+                id: '2',
+                title: 'Building a Profile Card',
+                duration: '1-2 hours',
+                description: 'Create a personal profile card with images, links, and lists. Learn new HTML elements and how to style them using inline styles.'
+            },
+            {
+                id: '3',
+                title: 'Coming Soon',
+                duration: '',
+                description: 'More exciting lessons are on the way! Check back soon.',
+                comingSoon: true
             },
         ],
     },
@@ -73,63 +86,107 @@ export default async function LessonsPage({
 
                     <div className="space-y-6">
                         {course.lessons.map((lesson: any, index: number) => (
-                            <Link
-                                key={lesson.id}
-                                href={`/courses/${courseId}/lessons/${lesson.id}`}
-                                className="block card card-interactive p-0 overflow-hidden"
-                            >
-                                <div className="flex flex-col md:flex-row items-stretch">
-                                    {/* Lesson Number */}
-                                    <div className="hidden md:flex flex-shrink-0 w-24 bg-gradient-to-br from-blue-600 to-blue-800 items-center justify-center">
-                                        <span className="text-3xl font-bold text-white">
-                                            {String(index + 1).padStart(2, '0')}
-                                        </span>
-                                    </div>
+                            lesson.comingSoon ? (
+                                <div
+                                    key={lesson.id}
+                                    className="block card p-0 overflow-hidden opacity-60"
+                                >
+                                    <div className="flex flex-col md:flex-row items-stretch">
+                                        {/* Lesson Number */}
+                                        <div className="hidden md:flex flex-shrink-0 w-24 bg-gradient-to-br from-gray-400 to-gray-500 items-center justify-center">
+                                            <span className="text-3xl font-bold text-white">
+                                                {String(index + 1).padStart(2, '0')}
+                                            </span>
+                                        </div>
 
-                                    {/* Content */}
-                                    <div className="flex-1 p-6 md:p-8">
-                                        <div className="flex items-start gap-4">
-                                            {/* Mobile lesson number */}
-                                            <div className="md:hidden flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center">
-                                                <span className="text-lg font-bold text-white">
-                                                    {String(index + 1).padStart(2, '0')}
-                                                </span>
-                                            </div>
-
-                                            <div className="flex-1">
-                                                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                                                    {lesson.title}
-                                                </h3>
-                                                <p className="text-gray-600 leading-relaxed mb-4 line-clamp-2">
-                                                    {lesson.description}
-                                                </p>
-
-                                                <div className="flex flex-wrap items-center gap-4">
-                                                    <div className="inline-flex items-center gap-2 text-sm text-gray-500">
-                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                        </svg>
-                                                        <span>{lesson.duration}</span>
-                                                    </div>
-                                                    <div className="inline-flex items-center gap-2 text-sm text-gray-500">
-                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                                                        </svg>
-                                                        <span>Beginner Friendly</span>
-                                                    </div>
+                                        {/* Content */}
+                                        <div className="flex-1 p-6 md:p-8 bg-gray-50">
+                                            <div className="flex items-start gap-4">
+                                                {/* Mobile lesson number */}
+                                                <div className="md:hidden flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-500 rounded-xl flex items-center justify-center">
+                                                    <span className="text-lg font-bold text-white">
+                                                        {String(index + 1).padStart(2, '0')}
+                                                    </span>
                                                 </div>
-                                            </div>
 
-                                            {/* Arrow */}
-                                            <div className="hidden sm:flex flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 items-center justify-center group-hover:bg-blue-600 transition-colors">
-                                                <svg className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                                </svg>
+                                                <div className="flex-1">
+                                                    <h3 className="text-xl md:text-2xl font-bold text-gray-400 mb-2">
+                                                        Lesson {lesson.id}: {lesson.title}
+                                                    </h3>
+                                                    <p className="text-gray-400 leading-relaxed mb-4 line-clamp-2">
+                                                        {lesson.description}
+                                                    </p>
+                                                </div>
+
+                                                {/* Coming Soon Badge */}
+                                                <div className="hidden sm:flex flex-shrink-0">
+                                                    <span className="px-4 py-2 bg-gray-200 text-gray-500 text-sm font-medium rounded-full">
+                                                        Coming Soon
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </Link>
+                            ) : (
+                                <Link
+                                    key={lesson.id}
+                                    href={`/courses/${courseId}/lessons/${lesson.id}`}
+                                    className="block card card-interactive p-0 overflow-hidden"
+                                >
+                                    <div className="flex flex-col md:flex-row items-stretch">
+                                        {/* Lesson Number */}
+                                        <div className="hidden md:flex flex-shrink-0 w-24 bg-gradient-to-br from-blue-600 to-blue-800 items-center justify-center">
+                                            <span className="text-3xl font-bold text-white">
+                                                {String(index + 1).padStart(2, '0')}
+                                            </span>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="flex-1 p-6 md:p-8">
+                                            <div className="flex items-start gap-4">
+                                                {/* Mobile lesson number */}
+                                                <div className="md:hidden flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center">
+                                                    <span className="text-lg font-bold text-white">
+                                                        {String(index + 1).padStart(2, '0')}
+                                                    </span>
+                                                </div>
+
+                                                <div className="flex-1">
+                                                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                                                        {lesson.title}
+                                                    </h3>
+                                                    <p className="text-gray-600 leading-relaxed mb-4 line-clamp-2">
+                                                        {lesson.description}
+                                                    </p>
+
+                                                    <div className="flex flex-wrap items-center gap-4">
+                                                        <div className="inline-flex items-center gap-2 text-sm text-gray-500">
+                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                            </svg>
+                                                            <span>{lesson.duration}</span>
+                                                        </div>
+                                                        <div className="inline-flex items-center gap-2 text-sm text-gray-500">
+                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                                                            </svg>
+                                                            <span>Beginner Friendly</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {/* Arrow */}
+                                                <div className="hidden sm:flex flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 items-center justify-center group-hover:bg-blue-600 transition-colors">
+                                                    <svg className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            )
                         ))}
                     </div>
 

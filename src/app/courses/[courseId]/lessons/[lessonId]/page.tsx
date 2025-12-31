@@ -40,7 +40,7 @@ const lessonContent: Record<string, Record<string, any>> = {
                             content: 'Click in the HTML panel (top-left) and type the following code:',
                             code: `<h1>Hello World</h1>`,
                             codeLanguage: 'HTML',
-                            tip: 'The <h1> tag creates a "heading level 1" — the biggest heading. The text goes between the opening <h1> and closing </h1> tags.',
+                            tip: 'The <code>&lt;h1&gt;</code> tag creates a "heading level 1" — the biggest heading. The text goes between the opening <code>&lt;h1&gt;</code> and closing <code>&lt;/h1&gt;</code> tags.',
                         },
                         {
                             title: 'Check Your Result',
@@ -67,7 +67,7 @@ const lessonContent: Record<string, Record<string, any>> = {
                             content: 'Add this code below your <h1> tag:',
                             code: `<p>Hello friend, nice to meet you!</p>`,
                             codeLanguage: 'HTML',
-                            tip: 'The <p> tag creates a paragraph. Your HTML panel should now have two lines: the <h1> on top and the <p> below it.',
+                            tip: 'The <code>&lt;p&gt;</code> tag creates a paragraph. Your HTML panel should now have two lines: the <code>&lt;h1&gt;</code> on top and the <code>&lt;p&gt;</code> below it.',
                         },
                         {
                             title: 'Check Your Result',
@@ -143,7 +143,7 @@ const lessonContent: Record<string, Record<string, any>> = {
                             content: 'Add this input box after your <h1> tag and before the button:',
                             code: `<input type="text" id="nameInput" placeholder="Enter your name">`,
                             codeLanguage: 'HTML',
-                            tip: 'The <input> tag creates a text box. The placeholder text shows what to type but disappears when you start typing. We gave it an id so JavaScript can read what the user types.',
+                            tip: 'The <code>&lt;input&gt;</code> tag creates a text box. The placeholder text shows what to type but disappears when you start typing. We gave it an id so JavaScript can read what the user types.',
                         },
                         {
                             title: 'Update the Button',
@@ -265,6 +265,344 @@ function showGreeting() {
                 },
             ],
         },
+        '2': {
+            id: '2',
+            title: 'Building a Profile Card',
+            courseTitle: 'A Beginner\'s Guide to Web Development',
+            duration: '1-2 Hours (Self-Paced)',
+            introduction: 'In this lesson, you\'ll create a personal profile card — the kind you see on team pages and social media. You\'ll learn new HTML elements for images, links, and lists, plus how to style them directly using inline styles. By the end, you\'ll have a shareable profile card you can be proud of!',
+            sections: [
+                {
+                    title: 'Getting Started',
+                    content: 'We\'ll continue using CodePen for this lesson. If you completed Lesson 1, you\'re already set up!',
+                    steps: [
+                        {
+                            title: 'Create a New Pen',
+                            content: 'Log into CodePen and create a new Pen. Click "Create" in the top navigation and select "New Pen."',
+                            tip: 'Starting fresh helps you focus on the new concepts. You can always go back to your Lesson 1 Pen later!',
+                        },
+                        {
+                            title: 'Save Your Pen',
+                            content: 'Click on "Untitled" at the top and rename it to "My Profile Card" so you can find it later.',
+                            tip: 'Save early and often! CodePen auto-saves, but giving it a name helps you stay organised.',
+                        },
+                    ],
+                },
+                {
+                    title: 'Step 1: Add Your Name and Title',
+                    content: 'Let\'s start with the basics — your name and a short title.',
+                    steps: [
+                        {
+                            title: 'Add a Heading and Paragraph',
+                            content: 'In the HTML panel, add these elements (replace with your own name if you like!):',
+                            code: `<h1>Your Name</h1>
+<p>Web Developer in Training</p>`,
+                            codeLanguage: 'HTML',
+                            tip: 'These are the same tags you learned in Lesson 1! The <code>&lt;h1&gt;</code> is for your name, and <code>&lt;p&gt;</code> is for your title.',
+                        },
+                        {
+                            title: 'Check Your Result',
+                            content: 'You should see your name as a large heading with your title below it.',
+                            preview: {
+                                type: 'lesson2-step1',
+                                caption: 'Your name and title',
+                            },
+                        },
+                    ],
+                },
+                {
+                    title: 'Step 2: Adding a Profile Picture',
+                    content: 'Now let\'s add an image to your profile card. We\'ll use a placeholder image for now.',
+                    steps: [
+                        {
+                            title: 'Add an Image',
+                            content: 'Add this code between your <h1> and <p> tags:',
+                            code: `<img src="https://learn.yorkshiresoftwaresolutions.co.uk/yss-default-avatar.png" alt="Profile photo" />`,
+                            codeLanguage: 'HTML',
+                            tip: 'Notice the <code>/&gt;</code> at the end! The <code>&lt;img&gt;</code> tag is "self-closing" — it doesn\'t need a separate <code>&lt;/img&gt;</code> closing tag. The forward slash <code>/</code> before the <code>&gt;</code> shows it closes itself.',
+                        },
+                        {
+                            title: 'Understanding the Attributes',
+                            content: 'The image tag has two important attributes that tell the browser what to display:',
+                            tip: '<code>src</code> (source) — The URL or path to the image file. This tells the browser where to find the picture.<br/><br/><code>alt</code> (alternative text) — A description of the image. Screen readers read this aloud for visually impaired users, and it displays if the image fails to load.',
+                        },
+                        {
+                            title: 'Check Your Result',
+                            content: 'You should now see a grey placeholder image between your name and title.',
+                            preview: {
+                                type: 'lesson2-step2',
+                                caption: 'Profile card with placeholder image',
+                            },
+                        },
+                    ],
+                    learnMore: {
+                        content: 'The <img> tag is called a "void" or "self-closing" element — there are a few others like <br> (line break) and <input>. The alt attribute is important for accessibility: screen readers read it aloud to help visually impaired users understand the image.',
+                        link: 'https://www.w3schools.com/html/html_images.asp',
+                        linkText: 'W3Schools: HTML Images',
+                    },
+                },
+                {
+                    title: 'Step 3: Making the Image Round',
+                    content: 'A square image looks a bit plain. Let\'s make it circular using inline styles!',
+                    steps: [
+                        {
+                            title: 'Add a Style Attribute',
+                            content: 'Update your <img> tag to include a style attribute:',
+                            code: `<img src="https://learn.yorkshiresoftwaresolutions.co.uk/yss-default-avatar.png" alt="Profile photo" style="border-radius: 50%" />`,
+                            codeLanguage: 'HTML',
+                            tip: 'The style attribute lets you add styling directly to an element. "border-radius: 50%" rounds the corners so much that it becomes a circle!',
+                        },
+                        {
+                            title: 'Check Your Result',
+                            content: 'Your placeholder image should now be circular.',
+                            preview: {
+                                type: 'lesson2-step3',
+                                caption: 'Circular profile image',
+                            },
+                            tip: 'Try changing 50% to 10px or 20px — you\'ll get rounded corners instead of a full circle!',
+                        },
+                    ],
+                    learnMore: {
+                        content: 'The style attribute uses CSS properties. Each property has a name (like border-radius) and a value (like 50%). When you set border-radius to 50%, you\'re telling the browser to round each corner by half the element\'s size, which creates a perfect circle for square images.',
+                        link: 'https://www.w3schools.com/css/css3_borders.asp',
+                        linkText: 'W3Schools: CSS Rounded Corners',
+                    },
+                },
+                {
+                    title: 'Step 4: Adding a Short Bio',
+                    content: 'Let\'s add another paragraph with a brief description about yourself.',
+                    steps: [
+                        {
+                            title: 'Add a Bio Paragraph',
+                            content: 'Add this after your title paragraph:',
+                            code: `<p>I'm learning to build websites and having fun doing it! Based in Yorkshire, UK.</p>`,
+                            codeLanguage: 'HTML',
+                            tip: 'Feel free to write your own bio! Keep it short — one or two sentences works best for a profile card.',
+                        },
+                        {
+                            title: 'Your HTML So Far',
+                            content: 'Your HTML panel should now look like this:',
+                            code: `<h1>Your Name</h1>
+<img src="https://learn.yorkshiresoftwaresolutions.co.uk/yss-default-avatar.png" alt="Profile photo" style="border-radius: 50%" />
+<p>Web Developer in Training</p>
+<p>I'm learning to build websites and having fun doing it! Based in Yorkshire, UK.</p>`,
+                            codeLanguage: 'HTML',
+                        },
+                    ],
+                },
+                {
+                    title: 'Step 5: Grouping Everything in a Card',
+                    content: 'Right now, everything is spread across the page. Let\'s group it into a nice card shape using a <div>.',
+                    steps: [
+                        {
+                            title: 'Wrap Everything in a Div',
+                            content: 'Add a <div> around all your content with some styling:',
+                            code: `<div style="width: 300px; padding: 20px; text-align: center">
+  <h1>Your Name</h1>
+  <img src="https://learn.yorkshiresoftwaresolutions.co.uk/yss-default-avatar.png" alt="Profile photo" style="border-radius: 50%" />
+  <p>Web Developer in Training</p>
+  <p>I'm learning to build websites and having fun doing it! Based in Yorkshire, UK.</p>
+</div>`,
+                            codeLanguage: 'HTML',
+                            tip: 'The <code>&lt;div&gt;</code> tag is a container — it groups elements together. On its own it\'s invisible, but we can style it to create a card effect.',
+                        },
+                        {
+                            title: 'Understanding the Styles',
+                            content: 'Let\'s break down what each style property does:',
+                        },
+                    ],
+                    list: [
+                        '<code>width: 300px</code> — Sets the card to be 300 pixels wide',
+                        '<code>padding: 20px</code> — Adds 20 pixels of space inside the edges (like a picture frame)',
+                        '<code>text-align: center</code> — Centres all the text and images inside',
+                    ],
+                    learnMore: {
+                        content: 'The <div> element is one of the most used HTML tags. It doesn\'t represent anything specific — it\'s just a generic container for grouping content. Think of it like an invisible box that you can style however you want.',
+                        link: 'https://www.w3schools.com/tags/tag_div.asp',
+                        linkText: 'W3Schools: HTML Div Tag',
+                    },
+                },
+                {
+                    title: 'Step 6: Adding a Background and Border',
+                    content: 'Let\'s make the card look more like a card by adding a background colour and rounded corners.',
+                    steps: [
+                        {
+                            title: 'Update the Div Styles',
+                            content: 'Add background-color and border-radius to your div:',
+                            code: `<div style="width: 300px; padding: 20px; text-align: center; background-color: #f5f5f5; border-radius: 10px">`,
+                            codeLanguage: 'HTML',
+                            tip: 'Colours can be written as names (like "lightblue") or as hex codes (like "#f5f5f5"). Hex codes give you more precise control over colours.',
+                        },
+                        {
+                            title: 'Check Your Result',
+                            content: 'Your card should now have a light grey background with rounded corners!',
+                            preview: {
+                                type: 'lesson2-step6',
+                                caption: 'Profile card with background and rounded corners',
+                            },
+                            tip: 'Try changing #f5f5f5 to other colours like "lightblue", "#ffe4e1" (light pink), or "#e8f5e9" (light green)!',
+                        },
+                    ],
+                },
+                {
+                    title: 'Step 7: Adding a List of Skills',
+                    content: 'Profile cards often show skills or interests. Let\'s add a list!',
+                    steps: [
+                        {
+                            title: 'Add a Skills Section',
+                            content: 'Add this code after your bio paragraph (but still inside the div):',
+                            code: `<h3>My Skills</h3>
+<ul>
+  <li>HTML</li>
+  <li>JavaScript</li>
+  <li>Problem Solving</li>
+</ul>`,
+                            codeLanguage: 'HTML',
+                            tip: 'The <code>&lt;ul&gt;</code> tag creates an "unordered list" (bullet points). Each <code>&lt;li&gt;</code> is a "list item". Add as many skills as you like!',
+                        },
+                        {
+                            title: 'Check Your Result',
+                            content: 'You should see a heading with a bulleted list of skills.',
+                            preview: {
+                                type: 'lesson2-step7',
+                                caption: 'Profile card with skills list',
+                            },
+                        },
+                    ],
+                    learnMore: {
+                        content: 'There are two types of lists in HTML: <ul> (unordered list) shows bullet points, while <ol> (ordered list) shows numbers. Both use <li> for each item. Lists are great for showing groups of related items.',
+                        link: 'https://www.w3schools.com/html/html_lists.asp',
+                        linkText: 'W3Schools: HTML Lists',
+                    },
+                },
+                {
+                    title: 'Step 8: Adding a Link',
+                    content: 'Let\'s add a link that people can click. We\'ll link back to this lesson page!',
+                    steps: [
+                        {
+                            title: 'Add a Link',
+                            content: 'Add this code after your skills list:',
+                            code: `<a href="https://learn.yorkshiresoftwaresolutions.co.uk/courses/beginners-web-dev/lessons/2">View Building Instructions</a>`,
+                            codeLanguage: 'HTML',
+                            tip: 'The <code>&lt;a&gt;</code> tag creates a clickable link. The "href" attribute tells it where to go when clicked.',
+                        },
+                        {
+                            title: 'Test Your Link',
+                            content: 'Click the link — it should take you back to this very lesson page!',
+                            tip: 'Links can go anywhere: other websites, other pages on the same site, or even different sections of the same page.',
+                        },
+                    ],
+                    learnMore: {
+                        content: 'The <a> tag (anchor) creates hyperlinks — the foundation of the web! The href attribute can contain a full URL (like https://example.com), a relative path (like /about), or even an email address (like mailto:hello@example.com).',
+                        link: 'https://www.w3schools.com/html/html_links.asp',
+                        linkText: 'W3Schools: HTML Links',
+                    },
+                },
+                {
+                    title: 'Step 9: Styling the Link as a Button',
+                    content: 'Plain links look a bit boring. Let\'s style it to look like a button!',
+                    steps: [
+                        {
+                            title: 'Add Button Styles',
+                            content: 'Update your link with these styles:',
+                            code: `<a href="https://learn.yorkshiresoftwaresolutions.co.uk/courses/beginners-web-dev/lessons/2" style="display: inline-block; padding: 10px 20px; background-color: #c62828; color: white; text-decoration: none; border-radius: 5px">View Building Instructions</a>`,
+                            codeLanguage: 'HTML',
+                            tip: 'That\'s a lot of styles! Don\'t worry — each one does something simple. Let\'s break them down.',
+                        },
+                        {
+                            title: 'Understanding the Button Styles',
+                            content: 'Here\'s what each style property does:',
+                        },
+                    ],
+                    list: [
+                        '<code>display: inline-block</code> — Lets us add padding to the link properly',
+                        '<code>padding: 10px 20px</code> — Adds space inside (10px top/bottom, 20px left/right)',
+                        '<code>background-color: #c62828</code> — A nice red background colour',
+                        '<code>color: white</code> — Makes the text white',
+                        '<code>text-decoration: none</code> — Removes the underline',
+                        '<code>border-radius: 5px</code> — Rounds the corners slightly',
+                    ],
+                },
+                {
+                    title: 'Step 10: Save Your Work',
+                    content: 'You\'ve built a complete profile card! Make sure to save it.',
+                    steps: [
+                        {
+                            title: 'Save Your Pen',
+                            content: 'Click the "Save" button to ensure your work is saved. You can share the URL with friends to show them what you\'ve built!',
+                            tip: 'Congratulations! You\'ve learned 5 new HTML elements and over 10 style properties in this lesson.',
+                        },
+                    ],
+                },
+            ],
+            exercise: {
+                title: 'Practice Challenge',
+                description: 'Now it\'s time to make the card your own! Complete these two challenges:',
+                tasks: [
+                    'Customise the card\'s colours — change the background colour and button colour to your own choices',
+                    'Add a "Favourite Foods" section — create a new heading and list your top 3 favourite foods',
+                ],
+                hint: 'For colours, try using names like "lightblue", "coral", or "darkgreen", or search "hex colour picker" online to find specific colours!',
+                solution: `=== HTML Panel ===
+<div style="width: 300px; padding: 20px; text-align: center; background-color: lightblue; border-radius: 10px">
+  <h1>Your Name</h1>
+  <img src="https://learn.yorkshiresoftwaresolutions.co.uk/yss-default-avatar.png" alt="Profile photo" style="border-radius: 50%" />
+  <p>Web Developer in Training</p>
+  <p>I'm learning to build websites and having fun doing it! Based in Yorkshire, UK.</p>
+
+  <h3>My Skills</h3>
+  <ul>
+    <li>HTML</li>
+    <li>JavaScript</li>
+    <li>Problem Solving</li>
+  </ul>
+
+  <h3>Favourite Foods</h3>
+  <ul>
+    <li>Pizza</li>
+    <li>Fish and Chips</li>
+    <li>Yorkshire Pudding</li>
+  </ul>
+
+  <a href="https://learn.yorkshiresoftwaresolutions.co.uk/courses/beginners-web-dev/lessons/2" style="display: inline-block; padding: 10px 20px; background-color: darkgreen; color: white; text-decoration: none; border-radius: 5px">View Building Instructions</a>
+</div>`,
+                solutionNote: 'This is just one example! Your colours and foods will be different — that\'s the whole point. Make it yours!',
+            },
+            summary: [
+                '<strong>New HTML elements:</strong> &lt;img&gt; for images, &lt;a&gt; for links, &lt;div&gt; for grouping, &lt;ul&gt; and &lt;li&gt; for lists.',
+                '<strong>The style attribute</strong> lets you add CSS styling directly to any HTML element.',
+                '<strong>Common style properties:</strong> width, padding, text-align, background-color, color, border-radius, and text-decoration.',
+            ],
+            nextSteps: {
+                title: 'What\'s Next?',
+                description: 'Great work completing Lesson 2! You\'ve learned a lot of new HTML elements and styling techniques. In the next lesson, we\'ll build on these skills with an even more interactive project.',
+                resources: [
+                    {
+                        name: 'Lesson 3: Coming Soon',
+                        url: '/courses/beginners-web-dev/lessons',
+                        description: 'More exciting projects are on the way!',
+                    },
+                ],
+            },
+            additionalResources: [
+                {
+                    topic: 'HTML Images Guide',
+                    url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML',
+                },
+                {
+                    topic: 'CSS Colors Reference',
+                    url: 'https://www.w3schools.com/cssref/css_colors.php',
+                },
+                {
+                    topic: 'HTML Links Tutorial',
+                    url: 'https://www.w3schools.com/html/html_links.asp',
+                },
+                {
+                    topic: 'CSS Box Model Explained',
+                    url: 'https://www.w3schools.com/css/css_boxmodel.asp',
+                },
+            ],
+        },
     },
 };
 
@@ -347,6 +685,89 @@ function CodePreview({ type, caption }: { type: string; caption: string }) {
                     </button>
                 </div>
                 <p style={{ color: 'black', margin: 0 }}>Hello Sarah, nice to meet you!</p>
+            </PreviewWrapper>
+        );
+    }
+
+    // Lesson 2 Previews
+    // Step 1: Name and title
+    if (type === 'lesson2-step1') {
+        return (
+            <PreviewWrapper>
+                <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>Your Name</h1>
+                <p style={{ color: 'black', margin: 0 }}>Web Developer in Training</p>
+            </PreviewWrapper>
+        );
+    }
+
+    // Step 2: With placeholder image
+    if (type === 'lesson2-step2') {
+        return (
+            <PreviewWrapper>
+                <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>Your Name</h1>
+                <img
+                    src="/yss-default-avatar.png"
+                    alt="Profile photo"
+                    style={{ width: '150px', height: '150px', margin: '0 auto 8px', display: 'block', objectFit: 'cover' }}
+                />
+                <p style={{ color: 'black', margin: 0 }}>Web Developer in Training</p>
+            </PreviewWrapper>
+        );
+    }
+
+    // Step 3: Circular image
+    if (type === 'lesson2-step3') {
+        return (
+            <PreviewWrapper>
+                <h1 style={{ fontSize: '2em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>Your Name</h1>
+                <img
+                    src="/yss-default-avatar.png"
+                    alt="Profile photo"
+                    style={{ width: '150px', height: '150px', margin: '0 auto 8px', display: 'block', objectFit: 'cover', borderRadius: '50%' }}
+                />
+                <p style={{ color: 'black', margin: 0 }}>Web Developer in Training</p>
+            </PreviewWrapper>
+        );
+    }
+
+    // Step 6: Card with background
+    if (type === 'lesson2-step6') {
+        return (
+            <PreviewWrapper>
+                <div style={{ width: '300px', padding: '20px', textAlign: 'center', backgroundColor: '#f5f5f5', borderRadius: '10px', margin: '0 auto' }}>
+                    <h1 style={{ fontSize: '1.5em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>Your Name</h1>
+                    <img
+                        src="/yss-default-avatar.png"
+                        alt="Profile photo"
+                        style={{ width: '100px', height: '100px', margin: '0 auto 8px', display: 'block', objectFit: 'cover', borderRadius: '50%' }}
+                    />
+                    <p style={{ color: 'black', margin: '0 0 4px', fontWeight: '500' }}>Web Developer in Training</p>
+                    <p style={{ color: '#666', margin: 0, fontSize: '0.9em' }}>I'm learning to build websites!</p>
+                </div>
+            </PreviewWrapper>
+        );
+    }
+
+    // Step 7: Card with skills list
+    if (type === 'lesson2-step7') {
+        return (
+            <PreviewWrapper>
+                <div style={{ width: '300px', padding: '20px', textAlign: 'center', backgroundColor: '#f5f5f5', borderRadius: '10px', margin: '0 auto' }}>
+                    <h1 style={{ fontSize: '1.5em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>Your Name</h1>
+                    <img
+                        src="/yss-default-avatar.png"
+                        alt="Profile photo"
+                        style={{ width: '100px', height: '100px', margin: '0 auto 8px', display: 'block', objectFit: 'cover', borderRadius: '50%' }}
+                    />
+                    <p style={{ color: 'black', margin: '0 0 4px', fontWeight: '500' }}>Web Developer in Training</p>
+                    <p style={{ color: '#666', margin: '0 0 12px', fontSize: '0.9em' }}>I'm learning to build websites!</p>
+                    <h3 style={{ fontSize: '1.1em', fontWeight: 'bold', color: 'black', marginBottom: '8px' }}>My Skills</h3>
+                    <ul style={{ textAlign: 'left', color: 'black', paddingLeft: '30px', margin: 0, listStyleType: 'disc' }}>
+                        <li>HTML</li>
+                        <li>JavaScript</li>
+                        <li>Problem Solving</li>
+                    </ul>
+                </div>
             </PreviewWrapper>
         );
     }
@@ -548,7 +969,7 @@ export default function LessonPage({
                                                                 <svg className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                                                 </svg>
-                                                                <p className="text-sm text-amber-800">{step.tip}</p>
+                                                                <p className="text-sm text-amber-800 [&_code]:bg-amber-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:font-mono [&_code]:text-amber-900" dangerouslySetInnerHTML={{ __html: step.tip }} />
                                                             </div>
                                                         )}
                                                     </div>
